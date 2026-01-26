@@ -1,0 +1,124 @@
+.main {
+	height: 300px;
+	margin: 100px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	flex-direction: column;
+	text-align: center;
+	gap: 20px;
+    width: max(100%, 70vw)
+}
+.main div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    width: 100%;
+}
+.main a {
+	background-color: var(--hero-bg);
+	width: 95%;
+	padding: 6px 2px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 6px;
+	text-decoration: none;
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+	transition: all 0.5s;
+}
+.main a:hover {
+	scale: 1.02;
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.main:active a:not(:hover) {
+	filter: blur(10px);
+}
+/*======================*/
+.structure {
+	width: 100%;
+	text-align: center;
+}
+.structure table {
+	margin: 15px auto;
+}
+.structure table tbody tr td input {
+	width: 90%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-bottom: 1px solid #000;
+	outline: none;
+	border-radius: 2px;
+	font-family: Monospace;
+	background-color: transparent;
+	text-align: center;
+}
+.structure * {
+	margin-top: 15px;
+}
+.structure button {
+	background-color: rgba(249, 115, 22, 0.794);
+	padding: 5px 10px;
+	border: none;
+	outline: none;
+	border-radius: 6px;
+	transition: all 0.2s;
+}
+.structure button:hover {
+	scale: 1.1;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.structure button:active {
+	background-color: #f97316;
+}
+.structure th {
+	background-color: rgba(249, 115, 22, 0.794);
+	border-radius: 6px;
+	font-size: 0.7rem;
+	padding: 1px 1.5px;
+}
+.matier {
+	background-color: rgba(156, 163, 175, 0.502);
+	border-radius: 6px;
+	text-align: center;
+}
+.Grand_father {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	text-align: center;
+
+	width: 100%;
+}
+.father {
+	width: 30%;
+	text-align: center;
+}
+.father div {
+	width: 100%;
+	border-radius: 8px;
+	margin-top: 5px;
+}
+.father input {
+	width: 100%;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid #000;
+	background-color: transparent;
+	font-family: Arial;
+	text-align: center;
+}
+.father div:first-child {
+	background-color: rgba(249, 115, 22, 0.794);
+	border-radius: 8px;
+}
+.father:first-child div:not(:first-child) {
+	font-family: Arial;
+}
+.title {
+	text-align: center;
+	font-weight: 600;
+	margin-top: 60px;
+}
+/*==================÷*/
