@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProp> = ({
 						priority
 					/>
 					<h1>
-						7asib <span>v0.1</span>
+						7asib <span>v0.1.0</span>
 					</h1>
 				</div>
 				{sidebar ? (
