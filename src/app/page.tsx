@@ -34,10 +34,10 @@ const App: React.FC = () => {
 					</div>
 				</div>
 				<div style={{ flexDirection: "column" }}>
-					<Link style={{ width: "100%" }} href="/tas3a">
+					<Link style={{ width: "calc(100% - 14px" }} href="/tas3a">
 						tas3a
 					</Link>
-                    <Link style={{ width: "100%" }} href="/levels">autre niveaux</Link>
+                    <Link style={{ width: "calc(100% - 14px)" }} href="/levels">autre niveaux</Link>
 				</div>
 			</div>
 		</section>

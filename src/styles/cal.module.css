@@ -7,7 +7,12 @@
 	flex-direction: column;
 	text-align: center;
 	gap: 20px;
-    width: max(100%, 70vw)
+}
+/* okay ! this website is basically for phones, idc, so ill fix the styling later */
+@media (min-width: 765px){
+    .main{
+        margin: 100px 20vw;
+    }
 }
 .main div {
 	display: flex;
