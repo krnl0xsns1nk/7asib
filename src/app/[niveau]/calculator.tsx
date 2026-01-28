@@ -23,6 +23,9 @@ interface AnnualCalculatorProps {
 	title: string;
 	H4?: string;
 }
+interface niveauxType {
+    [key: string] : [JSX.Element, string | null | undefined]
+}
 function Structure({ children, className }: StructureProps) {
 	const [rows, setRows] = useState<Record<string, RowData>>({});
 	const [note, setNote] = useState<number | null>(null);
@@ -508,4 +511,16 @@ function BBAC_SH() {
 	);
 }
 
-export { TCSF, TCAL, ABAC_LSH, ABAC_SCEXP, BBAC_SH, BBAC_PC, TAS3A };
+
+const niveaux: niveauxType = {
+    tcsf: [TCSF, 'Tronc commun sciences Français'],
+    tcal: [TCAL, 'Tronc commun lettres'],
+    '1bac-lsh': [ABAC_LSH, '1bac lettres'],
+    '1bac-sf': [ABAC_SCEXP, '1bac sciences expérimentales'],
+    '2bac-sh': [BBAC_SH, '2bac lettres'],
+    '2bac-pc': [BBAC_PC, '2bac sciences physiques'],
+    '3ac': [TAS3A, 'Troisième année préparatoire'],
+    bingo: [<h1>bingo</h1>, null]
+};
+
+export default niveaux;

@@ -2,38 +2,12 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import {
-	TCSF,
-	TCAL,
-	ABAC_LSH,
-	ABAC_SCEXP,
-	BBAC_SH,
-	BBAC_PC,
-	TAS3A
-} from "./calculator";
-const LEVEL_MAP: Record<string, React.ComponentType> = {
-	"3ac": TAS3A,
-	tcsf: TCSF,
-	tcal: TCAL,
-	"1bac-sf": ABAC_SCEXP,
-	"1bac-lsh": ABAC_LSH,
-	"2bac-pc": BBAC_PC,
-	"2bac-sh": BBAC_SH
-};
-const LEVEL_NAMES: Record<string, string> = {
-	"3ac": "Troisième année préparatoire",
-	tcsf: "Tronc commun scientifique",
-	tcal: "Tronc commun lettres",
-	"1bac-sf": "1ère année bac sciences ex",
-	"1bac-lsh": "1ère année bac lettres et sciences humaines",
-	"2bac-pc": "2ème année bac sciences physiques",
-	"2bac-sh": "2ème année bac sciences humaines"
-};
+import niveaux from "./calculator";
 
 const Niveau: React.FC = () => {
 	const params = useParams();
 	const niveau = params.niveau as string;
-	const Component = LEVEL_MAP[niveau];
+	const Component = niveaux[niveau]?.[0]
 	if (Component) {
 		return (
 			<div style={{paddingBottom: "100px"}}>
@@ -65,9 +39,10 @@ const Niveau: React.FC = () => {
 						maxWidth: "400px",
 						margin: "0 auto"
 					}}
-				>
-					{Object.entries(LEVEL_NAMES).map(([key, name]) => (
-						<li key={key} style={{ marginBottom: "5px" }}>
+				>{/*     key: [jsx, name]         */}
+					{Object.entries(niveaux)
+                        .filter(([key, [jsx, label]]) => label).map(([key, [jsx, label]]) => (
+                        <li key={key} style={{ marginBottom: "5px" }}>
 							<Link
 								href={`/${key}`}
 								style={{
@@ -79,7 +54,7 @@ const Niveau: React.FC = () => {
 									transition: "background-color 0.2s"
 								}}
 							>
-								{name}
+								{label}
 							</Link>
 						</li>
 					))}

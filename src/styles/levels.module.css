@@ -1,0 +1,26 @@
+.main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 100px 15px;
+}
+.main a {
+        background-color: var(--hero-bg);
+        width: 95%;
+        padding: 6px 2px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 6px;
+        text-decoration: none;
+        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+        transition: all 0.5s;
+}
+.main a:hover {
+        scale: 1.02;
+        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.main a:active a:not(:active){
+    filter: blur(10px);
+}
