@@ -1,8 +1,13 @@
-
+export interface callType {
+    text: string;
+    url: string;
+}
 export interface SectionType {
   icon: JSX.Element;
   title: string;
   text: string;
+  double: boolean;
+  call: callType[];
 }
 
 export const sectionsData: SectionType[] = [
@@ -18,7 +23,9 @@ export const sectionsData: SectionType[] = [
       </svg>
     ),
     title: 'Comment nous calculons ?',
-    text: "Nous mettons tout en œuvre pour garantir les meilleures performances possibles. Cependant, il est possible que nous commettions des erreurs et que nos calculs ne soient pas toujours satisfaisants. C'est pourquoi nous vous expliquons comment nous procédons. Si vous êtes développeur, vous pouvez consulter directement notre code source. Sinon, vous pouvez vous référer à notre documentation officielle"
+    text: "Nous mettons tout en œuvre pour garantir les meilleures performances possibles. Cependant, il est possible que nous commettions des erreurs et que nos calculs ne soient pas toujours satisfaisants. C'est pourquoi nous vous expliquons comment nous procédons. Si vous êtes développeur, vous pouvez consulter directement notre code source. Sinon, vous pouvez vous référer à notre documentation officielle",
+    double: true,
+    call: [{text: "lire Wiki", url: 'https://github.com/krnl0xsns1nk'}, {text: "code source", url: 'https://github.com/krnl0xsns1nk/7asib'}]
   },
   {
     icon: (
@@ -31,7 +38,9 @@ export const sectionsData: SectionType[] = [
       </svg>
     ),
     title: 'Installer notre PWA',
-    text: "Installez notre site web en tant qu'application pour calculer vos notes. Vous pourrez ainsi accéder à nos services hors ligne, partout et à tout moment."
+    text: "Installez notre site web en tant qu'application pour calculer vos notes. Vous pourrez ainsi accéder à nos services hors ligne, partout et à tout moment.",
+    double: false,
+    call: [{text: "Installer ", url: '/7asib.apk'}]
   },
   {
     icon: (
@@ -44,7 +53,9 @@ export const sectionsData: SectionType[] = [
       </svg>
     ),
     title: 'Signaler des erreurs ou suggérer des améliorations',
-    text: "Vous avez trouvé une erreur sur le site ? Vous souhaitez nous suggérer une nouvelle fonctionnalité ou des idées pour améliorer notre site ? N'hésitez pas à nous les signaler via notre centre d'incidents."
+    text: "Vous avez trouvé une erreur sur le site ? Vous souhaitez nous suggérer une nouvelle fonctionnalité ou des idées pour améliorer notre site ? N'hésitez pas à nous les signaler via notre centre d'incidents.",
+    double: false,
+    call: [{ text: "Signaler", url: 'https://github.com/krnl0xsns1nk/issue'}]
   },
   {
     icon: (
@@ -58,7 +69,9 @@ export const sectionsData: SectionType[] = [
         </g>
       </svg>
     ),
-    title: 'Informations rapides',
-    text: "Sur notre site 7asib, nous calculons vos notes de manière simple et rapide. Il vous suffit d'entrer vos notes pour obtenir vos résultats. Pour plus d'informations, consultez notre page À propos."
+    title: 'Informations rapides et soutien',
+    text: "Sur notre site 7asib, nous calculons vos notes facilement et rapidement. Il vous suffit d'entrer vos notes pour obtenir vos résultats. Pour en savoir plus, consultez notre page 'À propos'. Nous vous remercions de votre soutien ! En nous donnant une étoile sur le project , vous nous aidez à améliorer nos services. Merci de votre confiance !",
+    double: true,
+    call: [{text: "Étoilez-nous", url: 'https://github.com/krnl0xsns1nk/7asib'} , {text: "À propos", url: '/about'}]
   }
 ];

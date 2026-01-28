@@ -52,4 +52,22 @@
   font-size: 0.95rem;
   color: #6b7280;
   line-height: 1.6;
+  margin-bottom: 5px;
+}
+.mainbtn, .secbtn{
+    border: 1px solid var(--primary);
+    border-radius: 3px;
+    margin: 5px;
+    padding: 8px 10px;
+    color: white;
+    background-color: var(--primary);
+/*    direction: ltr;*/
+    text-decoration: none;
+}
+.secbtn{
+    background-color: var(--pr-low);
+}
+.father{
+    text-align: right;
+    margin-top: 20px;
 }

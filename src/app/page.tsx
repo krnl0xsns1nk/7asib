@@ -20,7 +20,7 @@ const App: React.FC = () => {
 				pris en charge, veuillez nous le faire savoir et, si Dieu le
 				veut, nous l’ajouterons bientôt
 			</p>
-			<div style={{ flexDirection: "column" }}>
+			<div style={{ flexDirection: "column" }} className={styles.options}>
 				<div>
 					<div style={{ flexDirection: "column" }}>
 						<Link href="/tcsf">tcsf</Link>
@@ -34,8 +34,8 @@ const App: React.FC = () => {
 					</div>
 				</div>
 				<div style={{ flexDirection: "column" }}>
-					<Link style={{ width: "calc(100% - 14px" }} href="/tas3a">
-						tas3a
+					<Link style={{ width: "calc(100% - 14px" }} href="/3ac">
+						3ac
 					</Link>
                     <Link style={{ width: "calc(100% - 14px)" }} href="/levels">autre niveaux</Link>
 				</div>

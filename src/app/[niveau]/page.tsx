@@ -12,7 +12,7 @@ import {
 	TAS3A
 } from "./calculator";
 const LEVEL_MAP: Record<string, React.ComponentType> = {
-	tas3a: TAS3A,
+	"3ac": TAS3A,
 	tcsf: TCSF,
 	tcal: TCAL,
 	"1bac-sf": ABAC_SCEXP,
@@ -21,10 +21,10 @@ const LEVEL_MAP: Record<string, React.ComponentType> = {
 	"2bac-sh": BBAC_SH
 };
 const LEVEL_NAMES: Record<string, string> = {
-	tas3a: "Troisième année préparatoire",
+	"3ac": "Troisième année préparatoire",
 	tcsf: "Tronc commun scientifique",
 	tcal: "Tronc commun lettres",
-	"1bac-se": "1ère année bac sciences ex",
+	"1bac-sf": "1ère année bac sciences ex",
 	"1bac-lsh": "1ère année bac lettres et sciences humaines",
 	"2bac-pc": "2ème année bac sciences physiques",
 	"2bac-sh": "2ème année bac sciences humaines"
