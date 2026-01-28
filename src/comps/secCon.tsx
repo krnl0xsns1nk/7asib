@@ -17,8 +17,8 @@ export const sectionsData: SectionType[] = [
         </g>
       </svg>
     ),
-    title: 'Quick Calculation',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.'
+    title: 'Comment nous calculons ?',
+    text: "Nous mettons tout en œuvre pour garantir les meilleures performances possibles. Cependant, il est possible que nous commettions des erreurs et que nos calculs ne soient pas toujours satisfaisants. C'est pourquoi nous vous expliquons comment nous procédons. Si vous êtes développeur, vous pouvez consulter directement notre code source. Sinon, vous pouvez vous référer à notre documentation officielle"
   },
   {
     icon: (
@@ -30,8 +30,8 @@ export const sectionsData: SectionType[] = [
         </g>
       </svg>
     ),
-    title: 'Accurate Results',
-    text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'
+    title: 'Installer notre PWA',
+    text: "Installez notre site web en tant qu'application pour calculer vos notes. Vous pourrez ainsi accéder à nos services hors ligne, partout et à tout moment."
   },
   {
     icon: (
@@ -43,8 +43,8 @@ export const sectionsData: SectionType[] = [
         </g>
       </svg>
     ),
-    title: 'Lightning Fast',
-    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.'
+    title: 'Signaler des erreurs ou suggérer des améliorations',
+    text: "Vous avez trouvé une erreur sur le site ? Vous souhaitez nous suggérer une nouvelle fonctionnalité ou des idées pour améliorer notre site ? N'hésitez pas à nous les signaler via notre centre d'incidents."
   },
   {
     icon: (
@@ -58,7 +58,7 @@ export const sectionsData: SectionType[] = [
         </g>
       </svg>
     ),
-    title: 'Secure & Private',
-    text: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.'
+    title: 'Informations rapides',
+    text: "Sur notre site 7asib, nous calculons vos notes de manière simple et rapide. Il vous suffit d'entrer vos notes pour obtenir vos résultats. Pour plus d'informations, consultez notre page À propos."
   }
 ];
