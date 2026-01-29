@@ -13,6 +13,10 @@
     .main{
         margin: 100px 20vw;
     }
+    .structure, .Grand_father{
+        margin: 0 auto;
+        width: 550px;
+    }
 }
 .main div {
 	display: flex;
@@ -38,10 +42,15 @@
 .options:active a:not(:hover) {
 	filter: blur(10px);
 }
+@media (max-width: 765px){
+    .structure, .Grand_father{
+        width: 95%;
+    }
+}
 /*======================*/
 .structure {
-	width: 100%;
 	text-align: center;
+    margin: 0 auto;
 }
 .structure table {
 	margin: 15px auto;
@@ -93,8 +102,6 @@
 	justify-content: center;
 	gap: 10px;
 	text-align: center;
-
-	width: 100%;
 }
 .father {
 	width: 30%;

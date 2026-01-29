@@ -510,9 +510,61 @@ function BBAC_SH() {
 		</>
 	);
 }
-
+function AAC() {
+     const anneLevel: Subject[] = [
+         { subject: "Première", coef: 1 },
+         { subject: "Deuxième", coef: 1 }
+];
+        return (
+                <>
+                     <h2 className={styles.title}>
+                       Première année collège
+                    </h2>
+                    <Structure className={styles.structure}>
+                            <Trs ceof="5" matier="Math" />
+                            <Trs ceof="5" matier="Français" />
+                            <Trs ceof="5" matier="Arabe" />
+                            <Trs ceof="3" matier="Sc. Social" />
+                            <Trs ceof="3" matier="Sciences" />
+                            <Trs ceof="2" matier="Physique" />
+                            <Trs ceof="2" matier="islamique" />
+                            <Trs ceof="2" matier="Sport" />
+                            <Trs ceof="1" matier="Anglais" />
+                            <TrM ceof="1" matier="Assiduité" />
+                </Structure>
+                <Sndala999 anneLevel={anneLevel} title="Période" />
+                </>
+        );
+}
+function BAC() {
+     const anneLevel: Subject[] = [
+         { subject: "Première", coef: 1 },
+         { subject: "Deuxième", coef: 1 }
+];
+        return (
+                <>
+                     <h2 className={styles.title}>
+                       Deuxième année collège
+                    </h2>
+                    <Structure className={styles.structure}>
+                            <Trs ceof="5" matier="Math" />
+                            <Trs ceof="5" matier="Français" />
+                            <Trs ceof="5" matier="Arabe" />
+                            <Trs ceof="3" matier="Sc. Social" />
+                            <Trs ceof="3" matier="Sciences" />
+                            <Trs ceof="2" matier="Physique" />
+                            <Trs ceof="2" matier="islamique" />
+                            <Trs ceof="2" matier="Technologie" />
+                            <Trs ceof="2" matier="Sport" />
+                            <Trs ceof="1" matier="Anglais" />
+                            <TrM ceof="1" matier="Assiduité" />
+                </Structure>
+                <Sndala999 anneLevel={anneLevel} title="Période" />
+                </>
+        );
+}
 export const primarylev: niveauxType = {
-    '3ac': [TAS3A, 'Troisième année préparatoire'],
+    '3ac': [TAS3A, 'Troisième année collège'],
     tcsf: [TCSF, 'Tronc commun sciences Français'],
     tcal: [TCAL, 'Tronc commun lettres'],
     '1bac-lsh': [ABAC_LSH, '1bac lettres'],
@@ -520,11 +572,10 @@ export const primarylev: niveauxType = {
     '2bac-sh': [BBAC_SH, '2bac lettres'],
     '2bac-pc': [BBAC_PC, '2bac sciences physiques'],
 }
-const Bingo : React.FC = () => {
-    return <h1>Hello world</h1>
-}
+
 export const secondarylev: niveauxType ={
-    bingo: [Bingo, 'fulan fulnai']
+    '1ac': [AAC, 'Première année collège'],
+    '2ac': [BAC, 'Deuxième année collège']
 }
 
 export const niveaux: niveauxType = {

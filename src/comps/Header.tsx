@@ -58,9 +58,8 @@ const SideBar: React.FC<SideBarProp> = ({ clas }) => {
 	return (
 		<nav className={`${styles.nav} ${clas}`}>
 			<Link href="/">Home</Link>
-					<Link href="/about">
-						about
-					</Link>
+            <Link href="#pwa">Note App</Link> 
+			<Link href="/about"> À propos </Link>
 		</nav>
 	);
 };
