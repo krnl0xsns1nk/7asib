@@ -3,12 +3,12 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: calc(100% - 30px);
         margin: 100px 15px;
 }
-.main a {
+.link {
         background-color: var(--hero-bg);
-        width: 95%;
+        text-decoration: none;
         padding: 6px 2px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -17,10 +17,20 @@
         box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
         transition: all 0.5s;
 }
-.main a:hover {
+.link a{
+    text-decoration: none;
+}
+.link:hover {
         scale: 1.02;
         box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
-.main a:active a:not(:active){
+.main ul:active .link:not(:hover){
     filter: blur(10px);
+}
+.main li, .main ul{
+    width: 100%;
+    list-style: none;
+}
+.little, .link{
+    text-align: center;
 }

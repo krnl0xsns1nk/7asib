@@ -2,13 +2,20 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import niveaux from "./calculator";
+import { primarylev, secondarylev } from "@/lib/calculator";
+import { niveaux } from "@/lib/calculator";
 
 const Niveau: React.FC = () => {
+    console.log('niveaux:', niveaux);
+    console.log('primarylev:', primarylev);
+    console.log('secondarylev:', secondarylev);
+    console.log('Object.entries(primarylev):', Object.entries(primarylev || {}));
 	const params = useParams();
 	const niveau = params.niveau as string;
-	const Component = niveaux[niveau]?.[0]
-	if (Component) {
+	const Comp = niveaux[niveau] ?? null
+
+	if (Comp) {
+        const Component = Comp[0]
 		return (
 			<div style={{paddingBottom: "100px"}}>
 				<Component />
@@ -20,7 +27,7 @@ const Niveau: React.FC = () => {
 			style={{
 				textAlign: "center",
 				padding: "100px 20px",
-				direction: "rtl"
+				direction: "ltr"
 			}}
 		>
 			<h4 style={{ color: "#dc2626", marginBottom: "20px" }}>
@@ -41,7 +48,7 @@ const Niveau: React.FC = () => {
 					}}
 				>{/*     key: [jsx, name]         */}
 					{Object.entries(niveaux)
-                        .filter(([key, [jsx, label]]) => label).map(([key, [jsx, label]]) => (
+                        .map(([key, [j, label]]) => (
                         <li key={key} style={{ marginBottom: "5px" }}>
 							<Link
 								href={`/${key}`}

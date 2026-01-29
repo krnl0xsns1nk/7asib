@@ -511,16 +511,22 @@ function BBAC_SH() {
 	);
 }
 
-
-const niveaux: niveauxType = {
+export const primarylev: niveauxType = {
+    '3ac': [TAS3A, 'Troisième année préparatoire'],
     tcsf: [TCSF, 'Tronc commun sciences Français'],
     tcal: [TCAL, 'Tronc commun lettres'],
     '1bac-lsh': [ABAC_LSH, '1bac lettres'],
     '1bac-sf': [ABAC_SCEXP, '1bac sciences expérimentales'],
     '2bac-sh': [BBAC_SH, '2bac lettres'],
     '2bac-pc': [BBAC_PC, '2bac sciences physiques'],
-    '3ac': [TAS3A, 'Troisième année préparatoire'],
-    bingo: [<h1>bingo</h1>, null]
-};
+}
+const Bingo : React.FC = () => {
+    return <h1>Hello world</h1>
+}
+export const secondarylev: niveauxType ={
+    bingo: [Bingo, 'fulan fulnai']
+}
 
-export default niveaux;
+export const niveaux: niveauxType = {
+    ...secondarylev, ...primarylev
+};
