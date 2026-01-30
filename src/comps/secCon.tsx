@@ -46,7 +46,7 @@ export const sectionsData: SectionType[] = [
         </g>
       </svg>
     ),
-    title: 'Installer notre PWA',
+    title: 'Installer notre PWA (.apk)',
     text: "Installez notre site web en tant qu'application pour calculer vos notes. Vous pourrez ainsi accéder à nos services hors ligne, partout et à tout moment.",
     double: false,
     call: [{

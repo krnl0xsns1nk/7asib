@@ -3,7 +3,7 @@ import Link from "next/link";
 // import { useState } from 'react';
 import { sectionsData } from '@/comps/secCon';
 import styles from '@/styles/sections.module.css';
-
+import Writer from "@/lib/Writer";
 const Sections = () => {
     let pwaSecStatus: boolean = false;
   return (
@@ -18,7 +18,9 @@ const Sections = () => {
             id={pwaSecStatus ? 'pwa' : ''}
           >
             <div className={styles.icon}>{section.icon}</div>
-            <h3 className={styles.title}>{section.title}</h3>
+            <h3 className={styles.title}>
+                <Writer text={section.title} />
+            </h3>
             <p className={styles.text}>{section.text}</p>
             <div className={styles.father}>
   

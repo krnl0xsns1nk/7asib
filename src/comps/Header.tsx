@@ -39,7 +39,11 @@ const Header: React.FC<HeaderProp> = ({
 							setShowSide(prev => !prev);
 						}}
 					>
-						☓
+					<div className={`${styles.burger} ${showSide ? styles.hideMePls : ''}`}>
+                        <div className={styles.c1}></div>
+                        <div className={styles.c2}></div>
+                        <div className={styles.c3}></div>
+                    </div>
 					</span>
 				) : null}
 			</header>
@@ -58,7 +62,7 @@ const SideBar: React.FC<SideBarProp> = ({ clas }) => {
 	return (
 		<nav className={`${styles.nav} ${clas}`}>
 			<Link href="/">Home</Link>
-            <Link href="#pwa">Note App</Link> 
+            <Link href="#pwa">Notre App</Link> 
 			<Link href="/about"> À propos </Link>
 		</nav>
 	);

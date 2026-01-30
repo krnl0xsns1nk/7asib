@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
 			style={{
 				background: "#f5f5f5",
 				padding: "10px 10px 10px 10px ",
-				marginTop: "10px"
+                width: "100vw"
 			}}
 		>
 			<hr style={{ margin: "0 0 0.5rem 0" }} />
