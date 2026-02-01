@@ -1,7 +1,8 @@
 "use client";
 import { useState, ReactNode, cloneElement, isValidElement } from "react";
+import { TAS3A, TCSF, TCAL, ABAC_SCEXP, ABAC_LSH, BBAC_PC, BBAC_SH, AAC, BAC} from "./levels.tsx"
 import styles from "@/styles/cal.module.css";
-interface Subject {
+export interface Subject {
 	subject: string;
 	coef: number;
 }
@@ -26,7 +27,7 @@ interface AnnualCalculatorProps {
 interface niveauxType {
     [key: string] : [JSX.Element, string | null | undefined]
 }
-function Structure({ children, className }: StructureProps) {
+export function Structure({ children, className }: StructureProps) {
 	const [rows, setRows] = useState<Record<string, RowData>>({});
 	const [note, setNote] = useState<number | null>(null);
 
@@ -57,7 +58,7 @@ function Structure({ children, className }: StructureProps) {
 
 	return (
 		<div className={className || "structure"}>
-			<p style={{ padding: "0 10px" }}>
+			<p style={{ padding: "0 10px", direction: "ltr"}}>
 				Vous pouvez calculer votre moyenne ici, veillez à remplir le
 				tableau ci-dessous et cliquez sur le bouton Calculer pour voir
 				votre résultat !
@@ -104,7 +105,7 @@ function Structure({ children, className }: StructureProps) {
 		</div>
 	);
 }
-function Trs({ matier, ceof, updateRow }: GradeInputProps) {
+export function Trs({ matier, ceof, updateRow }: GradeInputProps) {
 	const coef = Number(ceof);
 	const [values, setValues] = useState<string[]>(["", "", "", "", ""]);
 
@@ -139,7 +140,7 @@ function Trs({ matier, ceof, updateRow }: GradeInputProps) {
 		</tr>
 	);
 }
-function TrM({ matier, ceof, updateRow }: GradeInputProps) {
+export function TrM({ matier, ceof, updateRow }: GradeInputProps) {
 	const coef = Number(ceof);
 	const [values, setValues] = useState<string[]>([""]);
 
@@ -173,7 +174,7 @@ function TrM({ matier, ceof, updateRow }: GradeInputProps) {
 		</tr>
 	);
 }
-function /* dont care about that 🗿=> */ Sndala999({
+export function Activiti({
 	anneLevel,
 	title,
 	H4 = "Moyenne générale"
@@ -253,6 +254,7 @@ function /* dont care about that 🗿=> */ Sndala999({
 		</>
 	);
 }
+/*
 function TAS3A() {
 	const subjecto: Subject[] = [
 		{ subject: "Français", coef: 1 },
@@ -294,9 +296,9 @@ function TAS3A() {
 				))}
 				<TrM ceof="1" matier="Assiduité" />
 			</Structure>
-			<Sndala999 H4="Moyenne régionale" anneLevel={sub} title="Matière" />
-			<Sndala999 H4="Moyenne locale" anneLevel={sub} title="Matière" />
-			<Sndala999 anneLevel={anneLevel} title="Période" />
+			<Activiti H4="Moyenne régionale" anneLevel={sub} title="Matière" />
+			<Activiti H4="Moyenne locale" anneLevel={sub} title="Matière" />
+			<Activiti anneLevel={anneLevel} title="Période" />
 		</>
 	);
 }
@@ -322,7 +324,7 @@ function TCSF() {
 				<Trs ceof="2" matier="Sport" />
 				<TrM ceof="1" matier="Assiduité" />
 			</Structure>
-			<Sndala999 anneLevel={anneLevel} title="Semestre" />
+			<Activiti anneLevel={anneLevel} title="Semestre" />
 		</>
 	);
 }
@@ -382,12 +384,12 @@ function ABAC_SCEXP() {
 				<Trs ceof="1" matier="Sport" />
 				<TrM ceof="1" matier="Assiduité" />
 			</Structure>
-			<Sndala999
-				anneLevel={subjects}
+			<Activiti
+			anneLevel={subjects}
 				H4="Moyenne régionale"
 				title="Matière"
 			/>
-			<Sndala999 anneLevel={anneLevel} title="Période" />
+			<Activiti anneLevel={anneLevel} title="Période" />
 		</>
 	);
 }
@@ -419,12 +421,12 @@ function ABAC_LSH() {
 				<Trs ceof="1" matier="Sport" />
 				<TrM ceof="1" matier="Assiduité" />
 			</Structure>
-			<Sndala999
+			<Activiti
 				anneLevel={subjects}
 				H4="Moyenne régionale"
 				title="Matière"
 			/>
-			<Sndala999 anneLevel={anneLevel} title="Période" />
+			<Activiti anneLevel={anneLevel} title="Période" />
 		</>
 	);
 }
@@ -461,12 +463,12 @@ function BBAC_PC() {
 				<Trs ceof="1" matier="Sport" />
 				<TrM ceof="1" matier="Assiduité" />
 			</Structure>
-			<Sndala999
+			<Activiti
 				anneLevel={subjects}
 				H4="Moyenne nationale"
 				title="Matière"
 			/>
-			<Sndala999 anneLevel={anneLevel} title="Période" />
+			<Activiti anneLevel={anneLevel} title="Période" />
 		</>
 	);
 }
@@ -501,12 +503,12 @@ function BBAC_SH() {
 				<Trs ceof="1" matier="Sport" />
 				<TrM ceof="1" matier="Assiduité" />
 			</Structure>
-			<Sndala999
+			<Activiti
 				anneLevel={subjects}
 				H4="Moyenne nationale"
 				title="Matière"
 			/>
-			<Sndala999 anneLevel={anneLevel} title="Période" />
+			<Activiti anneLevel={anneLevel} title="Période" />
 		</>
 	);
 }
@@ -532,7 +534,7 @@ function AAC() {
                             <Trs ceof="1" matier="Anglais" />
                             <TrM ceof="1" matier="Assiduité" />
                 </Structure>
-                <Sndala999 anneLevel={anneLevel} title="Période" />
+                <Activiti anneLevel={anneLevel} title="Période" />
                 </>
         );
 }
@@ -559,10 +561,11 @@ function BAC() {
                             <Trs ceof="1" matier="Anglais" />
                             <TrM ceof="1" matier="Assiduité" />
                 </Structure>
-                <Sndala999 anneLevel={anneLevel} title="Période" />
+                <Activiti anneLevel={anneLevel} title="Période" />
                 </>
         );
-}
+}*/
+
 export const primarylev: niveauxType = {
     '3ac': [TAS3A, 'Troisième année collège'],
     tcsf: [TCSF, 'Tronc commun sciences Français'],
@@ -578,6 +581,7 @@ export const secondarylev: niveauxType ={
     '2ac': [BAC, 'Deuxième année collège']
 }
 
-export const niveaux: niveauxType = {
+const niveaux: niveauxType = {
     ...secondarylev, ...primarylev
 };
+export default niveaux;
