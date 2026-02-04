@@ -1,49 +1,31 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import Writer from "@/lib/Writer";
-import styles from "@/styles/cal.module.css";
-import Sections from "@/comps/Sections";
-//import Vbg from "@/components/bg";
+import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
+const supportedLocales = ['ar', 'fr']
+const defaultLocale = 'fr'
+export function getBrowserLocale(acceptLanguage: string): string {
+  const languages = acceptLanguage
+    .split(',')
+    .map(lang => {
+      const [code, priority = 'q=1'] = lang.trim().split(';')
+      return {
+        code: code.split('-')[0], // ar-SA → ar
+        priority: parseFloat(priority.replace('q=', ''))
+      }
+    })
+    .sort((a, b) => b.priority - a.priority)
 
-const App: React.FC = () => {
-	return (
-        <>
-		<section className={styles.main}>
-			<h2>
-            	<Writer text="Calculez votre moyenne facilement!" />
-			</h2>
-			<p>
-				Vous pouvez choisir votre niveau scolaire et calculer facilement
-				votre moyenne ou vos résultats. Il vous suffit de sélectionner
-				l'une des options disponibles. Si votre niveau n'est pas encore
-				pris en charge, veuillez nous le faire savoir et, si Dieu le
-				veut, nous l’ajouterons bientôt
-			</p>
-			<div style={{ flexDirection: "column" }} className={styles.options}>
-				<div>
-					<div style={{ flexDirection: "column" }}>
-						<Link href="/tcsf">tcsf</Link>
-						<Link href="/1bac-sf">1bac-sf</Link>
-						<Link href="/2bac-pc">2bac-pc</Link>
-					</div>
-					<div style={{ flexDirection: "column" }}>
-						<Link href="/tcal">tcal</Link>
-						<Link href="/1bac-lsh">1bac-lsh</Link>
-						<Link href="/2bac-sh">2bac-sh</Link>
-					</div>
-				</div>
-				<div style={{ flexDirection: "column" }}>
-					<Link style={{ width: "calc(100% - 14px" }} href="/3ac">
-						3ac
-					</Link>
-                    <Link style={{ width: "calc(100% - 14px)" }} href="/levels">autre niveaux</Link>
-				</div>
-			</div>
-		</section>
-        <Sections />
-      </>
-	);
-};
-
-export default App;
+  for (const lang of languages) {
+    if (supportedLocales.includes(lang.code)) {
+      return lang.code
+    }
+  }
+  return defaultLocale
+}
+export default async function RootPage() {
+  const headersList = await headers()
+  const acceptLanguage = headersList.get('accept-language') || ''
+  
+  const userLocale = getBrowserLocale(acceptLanguage)
+  
+  redirect(`/${userLocale}`)
+}

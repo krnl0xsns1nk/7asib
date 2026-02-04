@@ -1,44 +1,52 @@
 "use client";
 import React from "react";
-import { useParams } from "next/navigation";
+import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
-import { primarylev, secondarylev } from "@/lib/calculator";
-import { niveaux } from "@/lib/calculator";
+//import { primarylev, secondarylev } from "@/lib/calculator";
+//import { niveaux } from "@/lib/calculator"
+//import { Metadata } from "next";
+import niveaux from "@/lib/calculator";
+import {Locale, translations} from "@/lib/locales";
+import { createT } from "@/lib/creatT"; 
+
 
 const Niveau: React.FC = () => {
-    console.log('niveaux:', niveaux);
-    console.log('primarylev:', primarylev);
-    console.log('secondarylev:', secondarylev);
-    console.log('Object.entries(primarylev):', Object.entries(primarylev || {}));
 	const params = useParams();
+  const lang  = params.lang as string
+  if (!['ar', 'fr'].includes(lang)) {
+    notFound();
+  }
 	const niveau = params.niveau as string;
 	const Comp = niveaux[niveau] ?? null
+    const t = translations[lang as Locale] || translations.ar;
+
 
 	if (Comp) {
         const Component = Comp[0]
 		return (
-			<div style={{paddingBottom: "100px"}}>
-				<Component />
+			<div style={{paddingBottom: "100px"}} className="animate-on-scroll">
+				<Component lang={lang}/>
 			</div>
 		);
     }
+    let plzWork = createT(t)
 	return (
 		<div
 			style={{
 				textAlign: "center",
-				padding: "100px 20px",
-				direction: "ltr"
+				padding: "100px 20px"
 			}}
+            className="animate-on-scroll"
 		>
 			<h4 style={{ color: "#dc2626", marginBottom: "20px" }}>
-				Désolé, le niveau n'existe pas !
+                {t.niveauNotFound.title}
 			</h4>
 			<p style={{ marginBottom: "30px", color: "#6b7280" }}>
-				Le niveau "{niveau}" n'est pas disponible actuellement
+                {plzWork("niveauNotFound.description", { niveau })}
 			</p>
 
 			<div style={{ marginBottom: "10px" }}>
-				<h3 style={{ marginBottom: "5px" }}>Niveaux disponibles :</h3>
+				<h3 style={{ marginBottom: "5px" }}>{t.niveauNotFound.availableLevels}</h3>
 				<ul
 					style={{
 						listStyle: "none",
@@ -51,7 +59,7 @@ const Niveau: React.FC = () => {
                         .map(([key, [j, label]]) => (
                         <li key={key} style={{ marginBottom: "5px" }}>
 							<Link
-								href={`/${key}`}
+								href={`/${lang}/${key}`}
 								style={{
 									color: "#f97316",
 									textDecoration: "none",
@@ -69,7 +77,7 @@ const Niveau: React.FC = () => {
 			</div>
 
 			<Link
-				href="/"
+				href={`/${lang}`}
 				style={{
 					display: "inline-block",
 					padding: "6px 15px",
@@ -80,7 +88,7 @@ const Niveau: React.FC = () => {
 					fontWeight: "bold"
 				}}
 			>
-				Retour à la page d'accueil
+            {t.niveauNotFound.backHome}
 			</Link>
 		</div>
 	);

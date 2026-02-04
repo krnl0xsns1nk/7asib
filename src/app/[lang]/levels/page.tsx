@@ -1,34 +1,34 @@
 "use client"
 import React from "react";
 import Link from "next/link";
-import { primarylev, secondarylev } from "@/lib/calculator";
-import { niveaux } from "@/lib/calculator";
+//import { primarylev, secondarylev } from "@/lib/calculator";
+import niveaux from "@/lib/calculator";
 import styles from "@/styles/levels.module.css"
+import {Locale, translations} from "@/lib/locales";
+import {notFound, useParams} from "next/navigation";
 
 const Niveau: React.FC = () => {
-//    console.log('niveaux:', niveaux);
-//    console.log('primarylev:', primarylev);
-//    console.log('secondarylev:', secondarylev);
-//    console.log('Object.entries(primarylev):', Object.entries(primarylev || {}));
-
+      const params = useParams();
+      const lang  = params.lang as string
+       if (!['ar', 'fr'].includes(lang)) {
+            notFound();
+       }
+       const t = translations[lang as Locale] || translations.ar
         return (
-                <section className={styles.main}
-                  // style={{ textAlign: "center", padding: "100px 20px", direction: "ltr" }}
+                <section className={`${styles.main} animate-on-scroll`}
                 >
-                <h2>Voici les niveaux disponibles</h2>
+                <h2>{t.levelsPage.availableLevels}</h2>
                         <p style={{ marginBottom: "30px", color: "#6b7280" }}>
-                     Bien sûr, n'hésitez pas à nous contacter si votre niveau n'est pas disponible.<br/>
-                    [!] Veuillez cliquer sur le nom pour accéder, et non sur la carte.
+                        {t.levelsPage.description}<br/>{t.levelsPage.instruction}
                         </p>
-
                         <div style={{ marginBottom: "10px" }}>
-                                <h3 className={styles.little}>Niveaux disponibles :</h3>
+                                <h3 className={styles.little}>{t.levelsPage.title}</h3>
                                 <ul> {/*     key: [jsx, name]         */}
                                         {Object.entries(niveaux)
                         .map(([key, [j, label]]) => (
                         <li key={key} className={styles.link}>
                                                         <Link
-                                                                href={`/${key}`}
+                                                                href={`/${lang}/${key}`}
                                                         >
                                                                 {label}
                                                         </Link>

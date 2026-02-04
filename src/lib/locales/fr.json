@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "title": "Calculateur de moyenne scolaire 2025 - Précis et rapide sans publicités",
+    "description": "Calculez votre moyenne scolaire avec précision et rapidité, sans publicités ni abonnement. Supporte tous les niveaux marocains (collège, tronc commun, baccalauréat). 100% gratuit et fonctionne sur mobile."
+  },
+  "hero": {
+    "title": "Calculer votre moyenne facilement",
+    "description": "Vous pouvez choisir votre niveau scolaire et calculer facilement votre moyenne ou vos résultats.",
+    "noAds": "Sans publicités",
+    "easy": "Facilement",
+    "free": "Gratuit",
+    "note": "Il vous suffit de sélectionner l'une des options disponibles. Si votre niveau n'est pas encore pris en charge, veuillez nous le faire savoir et nous l’ajouterons bientôt."
+  },
+  "nav": {
+      "home":"L'accueil",
+      "app": "Notre pwa",
+      "about": "À propos"
+  },
+  "levels": {
+    "otherLevels": "Autres niveaux"
+  },
+  "niveauNotFound": {
+    "title": "Désolé, le niveau n'existe pas !",
+    "description": "Le niveau \"{{niveau}}\" n'est pas disponible actuellement",
+    "availableLevels": "Niveaux disponibles :",
+    "backHome": "Retour à la page d'accueil"
+  },
+  "levelsPage": {
+     "title": "Voici les niveaux disponibles",
+    "description": "Bien sûr, n'hésitez pas à nous contacter si votre niveau n'est pas disponible.",
+    "instruction": "[!] Veuillez cliquer sur le nom pour accéder, et non sur la carte.",
+    "availableLevels": "Niveaux disponibles :"
+  },
+  "about": {
+    "hero": {
+      "subtitle": "Moyenne en un Clic – Pas de pub, pas d’abonnement, juste ton résultat"
+    },
+    "howToUseTitle": "Pour l'utilisateur",
+    "whoWeAre": {
+      "title": "Qui sommes-nous ?",
+      "content": "Ce site a commencé comme une petite idée. Un développeur voulait tester ses compétences dans un langage qui s'appelle JavaScript. Comme il était élève, il s'est dit : « Pourquoi ne pas créer un programme qui calcule la moyenne scolaire ? » C'est la chose la plus compliquée pour beaucoup d'élèves, alors il a choisi ça. Ensuite, il a pensé : « Et si on développait plus ? Une vraie plateforme pour étudier ensemble : partager des posts éducatifs, s'entraider, avoir un compte, publier des choses... » Mais c'était trop difficile : Pas assez de temps (la journée est pour les cours, le reste pour dormir). Pas assez de ressources (programmer sur téléphone, internet lent, beaucoup de bibliothèques lourdes). Trop d'idées en même temps. C'est pour ça que le projet s'est arrêté un moment. Puis les vacances sont arrivées, il a trouvé un peu de temps et il a décidé de faire la version la plus simple possible (un MVP) pour que le site soit publié officiellement, au lieu de rester juste une idée dans sa tête. Et nous y voilà : si tu lis ces lignes, c'est que le site est en ligne officiellement !"
+    },
+    "howCalculationWorks": {
+      "title": "Comment on calcule la moyenne ?",
+      "content": "Écoute bien pour ne pas te plaindre après. Tu es dans un niveau scolaire. Dans chaque niveau, il y a des matières différentes. Pour calculer ta moyenne générale, on prend chaque matière, on calcule sa moyenne à elle, et après on obtient la moyenne finale comme ceci : La somme de (moyenne de la matière × coefficient de la matière) divisée par la somme de tous les coefficients. Et comment on calcule la moyenne d'une matière ? On prend la somme de toutes les notes de la matière et on divise par le nombre de notes. Ensuite on multiplie ce résultat par le coefficient de la matière. On fait ça pour toutes les matières, on additionne tout, et on divise par le total des coefficients. Voici un résumé simple pour mieux comprendre : ∑(MDM * coefficient) / ∑coefficients ● MDM = ∑controles / nombre de controles ou bien = le moyenne de la matière. Lorsque vous ajoutez des points, les champs vides seront ignorés comme s'ils n'existaient pas. Si vous souhaitez les prendre en compte, vous devez entrer un point ou un 0 à la place. Si une matière n'a pas de points, elle sera supprimée et non prise en compte. Si vous entrez un certain nombre de points pour une matière, la somme des points sera divisée par ce nombre. Si vous êtes intelligent, vous savez que si vous connaissez déjà la moyenne de la matière, il suffit d'entrer la moyenne de chaque matière pour calculer directement la moyenne générale. Le nom de la matière n'a pas d'importance, vous pouvez par exemple échanger les points de deux matières, à condition qu'elles aient le même coefficient, ce qui est essentiel. Si vous êtes intelligent, vous saurez où utiliser cette fonctionnalité. La calculatrice utilise une fonction bien connue pour afficher le résultat avec deux décimales au lieu de plusieurs chiffres. Cette fonction est `.toFixed(2)`. Par conséquent, lorsque vous calculez votre moyenne et que le résultat est, par exemple, 12,777, il ne sera pas affiché sous cette forme, mais plutôt sous la forme 12,78 car nous utilisons un arrondi à 0,01 près. Si le chiffre des centièmes est supérieur ou égal à 5, par exemple : 12,125 sera arrondi à 12,13, 12,914 sera arrondi à 12,91 et 12,3245 sera arrondi à 12,32. J'espère que l'explication est claire. Si tu doutes du résultat, tu peux vérifier sur Massar, sur un autre site officiel, ou regarder le code source de notre site (tout est ouvert et transparent). Les coefficients de chaque matière et de chaque niveau sont dans le Wiki du projet. Si ton niveau n'est pas encore là, dis-le-nous s'il te plaît. Et si tu connais un peu le code, si tu as internet et un éditeur de code et du temps, tu peux ajouter ton niveau toi-même gratuitement et facilement ! Va sur le dépôt GitHub, les instructions sont là."
+    },
+    "helpMe": {
+      "title": "Comment m'aider",
+      "content": "La meilleure chose que tu puisses faire pour m'aider : partage le site avec tes amis et tes camarades. Il mérite vraiment d'être connu : gratuit, rapide, bientôt hors-ligne, et honnête à 100 %. Comparez vos notes ensemble, calculez vos moyennes en groupe et amusez-vous !"
+    },
+    "developers": {
+      "title": "Pour les développeur",
+      "content": "On vous invite très fort à participer au code source. Il y a plusieurs façons de le faire : Ajouter de nouveaux niveaux toi-même, Améliorer l'interface et l'expérience utilisateur, Ajouter de nouvelles fonctionnalités. On accepte toutes les idées raisonnables et intéressantes. Tu trouveras comment contribuer dans le dépôt GitHub. On se retrouve là-bas !"
+    },
+    "footer": {
+      "madeWithLove": "Fait avec passion pour la communauté étudiante"
+    }
+  },
+  "cardsSections": {
+  "calculationsTitle": "Comment nous calculons ?",
+  "calculationsDescription": "Nous mettons tout en œuvre pour garantir les meilleures performances possibles. Cependant, il est possible que nous commettions des erreurs et que nos calculs ne soient pas toujours satisfaisants. C'est pourquoi nous vous expliquons comment nous procédons. Si vous êtes développeur, vous pouvez consulter directement notre code source. Sinon, vous pouvez vous référer à notre documentation officielle.",
+  "readAbout": "lire À propos",
+  "sourceCode": "code source",
+  "installPwaTitle": "Installer notre PWA (.apk)",
+  "installPwaDescription": "Installez notre site web en tant qu'application pour calculer vos notes. Vous pourrez ainsi accéder à nos services hors ligne, partout et à tout moment.",
+  "install": "Installer",
+  "reportErrorTitle": "Signaler des erreurs ou suggérer des améliorations",
+  "reportErrorDescription": "Vous avez trouvé une erreur sur le site ? Vous souhaitez nous suggérer une nouvelle fonctionnalité ou des idées pour améliorer notre site ? N'hésitez pas à nous les signaler via notre centre d'incidents.",
+  "report": "Signaler",
+  "quickInfoTitle": "Informations rapides et soutien",
+  "quickInfoDescription": "Sur notre site 7asib, nous calculons vos notes facilement et rapidement. Il vous suffit d'entrer vos notes pour obtenir vos résultats. Pour en savoir plus, consultez notre page 'À propos'. Nous vous remercions de votre soutien ! En nous donnant une étoile sur le project , vous nous aidez à améliorer nos services. Merci de votre confiance !",
+  "starUs": "Étoilez-nous",
+  "about": "À propos",
+  "aboutUrl": "/fr/about"
+  },
+  "niveaux": {
+    "tas3a": "Troisieme annee preparatoire",
+    "tcs": "Tronc commun scientifique",
+    "tcl": "Tronc commun lettres",
+    "bac1_sc": "Premiere annee bac sciences experimentales",
+    "bac1_lsh": "Premiere annee bac lettres et sciences humaines",
+    "bac2_pc": "Deuxieme annee bac sciences physiques",
+    "bac2_sh": "Deuxieme annee bac sciences humaines",
+    "col1": "Premiere annee college",
+    "col2": "Deuxieme annee college"
+  },
+  "subjects": {
+    "fr": "Francais",
+    "ar": "Arabe",
+    "math": "Math",
+    "phy": "Physique",
+    "svt": "Sciences",
+    "isl": "islamique",
+    "soc": "Sc. sociale",
+    "sport": "Sport",
+    "tech": "Technologie",
+    "eng": "Anglais",
+    "hisgeo": "His-Geo",
+    "phil": "Philosophie",
+    "info": "Informatique",
+    "assid": "Assiduite"
+  },
+  "periods": {
+    "p1": "Premiere",
+    "p2": "Deuxieme",
+    "local": "local",
+    "regional": "regional",
+    "national": "national",
+    "cc": "Ctr. continu",
+    "sem": "Semestre"
+  },
+  "labels": {
+    "subject": "Matiere",
+    "period": "Periode",
+    "avg_reg": "Moyenne regionale",
+    "avg_loc": "Moyenne locale",
+    "avg_nat": "Moyenne nationale"
+  },
+  "calculator": {
+    "intro": "Vous pouvez calculer votre moyenne ici, veillez à remplir le tableau ci-dessous et cliquez sur le bouton Calculer pour voir votre résultat !",
+    "table": {
+      "activities": "Activités",
+      "note4": "Note 4",
+      "note3": "Note 3",
+      "note2": "Note 2",
+      "note1": "Note 1",
+      "subject": "Matière"
+    },
+    "buttons": {
+      "calculate": "Calculer"
+    },
+    "Note": "Note",
+    "placeholders": {
+      "defaultZero": "défaut : 0"
+    },
+    "labels": {
+      "note": "Note",
+      "generalAverage": "Moyenne générale"
+    },
+    "levels": {
+      "3ac": "Troisième année collège",
+      "tcsf": "Tronc commun sciences Français",
+      "tcal": "Tronc commun lettres",
+      "1bac-lsh": "1bac lettres",
+      "1bac-sf": "1bac sciences expérimentales",
+      "2bac-sh": "2bac lettres",
+      "2bac-pc": "2bac sciences physiques",
+      "1ac": "Première année collège",
+      "2ac": "Deuxième année collège"
+    }
+  },
+  "f04": {
+    "title": "Page introuvable",
+    "desc": "Il semble que vous ayez atteint une page qui n'existe pas.",
+    "btn": "Retour à l'accueil"
+  }
+}

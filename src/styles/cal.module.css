@@ -1,6 +1,6 @@
 .main {
 	height: 300px;
-	margin: 100px 10px;
+	margin: 100px 10px 160px 10px;
 	display: flex;
 	align-items: center;
 	justify-content: start;
@@ -35,6 +35,12 @@
 	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
 	transition: all 0.5s;
 }
+.check{
+    display: block;
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
 .main a:hover {
 	scale: 1.02;
 	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -51,6 +57,7 @@
 .structure {
 	text-align: center;
     margin: 0 auto;
+    direction: ltr;
 }
 .structure table {
 	margin: 15px auto;
@@ -102,6 +109,7 @@
 	justify-content: center;
 	gap: 10px;
 	text-align: center;
+    direction: ltr;
 }
 .father {
 	width: 30%;

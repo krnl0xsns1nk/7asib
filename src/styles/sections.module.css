@@ -4,6 +4,7 @@
   margin: 0 auto;
   padding: 4rem 2rem;
   font-family: 'Tajawal', BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  direction: var(--lang-dir);
 }
 
 .grid {
@@ -62,7 +63,6 @@
     color: white;
     box-shadow: 4px 4px 2px var(--primary-low);
     background-color: var(--primary);
-/*    direction: ltr;*/
     text-decoration: none;
     transition: all 0.5s;
 }
@@ -76,6 +76,7 @@
     background-color: var(--pr-low);
 }
 .father{
+    direction: ltr;
     text-align: right;
     margin-top: 20px;
 }

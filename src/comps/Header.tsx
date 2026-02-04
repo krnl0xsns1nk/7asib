@@ -1,8 +1,9 @@
 "use client";
+import {translations, Locale} from "@/lib/locales";
 import styles from "@/styles/home.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import React from "react";
 interface HeaderProp {
 	sidebar?: boolean;
@@ -13,11 +14,17 @@ const Header: React.FC<HeaderProp> = ({
 	const [showSide, setShowSide] = React.useState<boolean>(false);
 	const pathname = usePathname();
 	React.useEffect(
-        _ => {
+        () => {
 			setShowSide(false);
 		},
 		[pathname]
 	);
+    const params = useParams();
+    let lang  = params.lang as string
+    if (!['ar', 'fr'].includes(lang)) {
+        lang = 'ar'
+   }
+
 	return (
 		<>
 			<header className={styles.header}>
@@ -48,22 +55,24 @@ const Header: React.FC<HeaderProp> = ({
 				) : null}
 			</header>
 			{showSide ? (
-				<SideBar clas={styles.hideSide} />
+				<SideBar clas={styles.hideSide} lang={lang}/>
 			) : (
-				<SideBar />
+				<SideBar lang={lang} />
 			)}
 		</>
 	);
 };
 interface SideBarProp {
-	clas: string;
+	clas?: string;
+    lang: string
 }
-const SideBar: React.FC<SideBarProp> = ({ clas }) => {
+const SideBar: React.FC<SideBarProp> = ({ clas, lang }) => {
+    const t = translations[lang as Locale] || translations.fr
 	return (
 		<nav className={`${styles.nav} ${clas}`}>
-			<Link href="/">Home</Link>
-            <Link href="#pwa">Notre App</Link> 
-			<Link href="/about"> À propos </Link>
+			<Link href={`/${lang}`}>{t.nav.home}</Link>
+            <Link href={`/${lang}/#pwa`}>{t.nav.app}</Link> 
+			<Link href={`/${lang}/about`}>{t.nav.about}</Link>
 		</nav>
 	);
 };

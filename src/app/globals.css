@@ -3,6 +3,12 @@
 	--hero-bg: #fef3c7;
 	--primary-low: rgb(246, 157, 96);
 	--pr-low: rgb(246, 157, 96, 0.7);
+    --dir-lang: ltr;
+    --text-dir: left;
+}
+:lang(ar){
+    --dir-lang: rtl;
+    --text-dir: right;
 }
 * {
 	margin: 0;
@@ -55,4 +61,34 @@ a {
 	font-family: "Tajawal";
 	src: url("/fonts/Tajawal-Black.ttf") format("truetype");
 	font-weight: 900;
+}
+/*========================================*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+/*  animation-timeline: view();*/
+  animation-range: entry 0% cover 30%;
+}
+
+.animate-on-scroll:nth-child(1) { animation-delay: 0.1s; }
+.animate-on-scroll:nth-child(2) { animation-delay: 0.2s; }
+.animate-on-scroll:nth-child(3) { animation-delay: 0.3s; }
+.animate-on-scroll:nth-child(4) { animation-delay: 0.4s; }
+
+@supports not (animation-timeline: view()) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
