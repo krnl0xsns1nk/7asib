@@ -8,7 +8,7 @@ import Link from "next/link";
 import niveaux from "@/lib/calculator";
 import {Locale, translations} from "@/lib/locales";
 import { createT } from "@/lib/creatT"; 
-
+import type { ComponentType, ReactNode } from "react";
 
 const Niveau: React.FC = () => {
 	const params = useParams();
@@ -22,7 +22,8 @@ const Niveau: React.FC = () => {
 
 
 	if (Comp) {
-        const Component = Comp[0]
+//        const Component: ComponentType<{lang: string}> = Comp[0]
+        const Component: ComponentType<{ lang: string }> = Comp[0] as unknown as ComponentType<{ lang: string }>; 
 		return (
 			<div style={{paddingBottom: "100px"}} className="animate-on-scroll">
 				<Component lang={lang}/>

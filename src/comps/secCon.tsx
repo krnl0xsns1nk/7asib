@@ -2,16 +2,17 @@
 //import fr from "@/lib/locales/fr.json"; 
 //import ar from "@/lib/locales/ar.json";
 import {Locale, translations} from "@/lib/locales";
+import type { ReactNode } from "react";
 
 export interface callType {
   text: string;
   url: string;
   inter?: boolean;
-  icon?: JSX.Element;
+  icon?: ReactNode;
 }
 
 export interface SectionType {
-  icon: JSX.Element;
+  icon: ReactNode;
   title: string;
   text: string;
   call: callType[];

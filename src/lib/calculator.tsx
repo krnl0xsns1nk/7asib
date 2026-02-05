@@ -28,8 +28,9 @@ interface AnnualCalculatorProps {
     lang?: string;
 }
 interface niveauxType {
-    [key: string] : [JSX.Element, string | null | undefined]
-}
+      [key: string]: [React.ComponentType<{ lang: string }>, string | null | undefined];
+};
+
 function returnT(l: string){return translations[l as Locale] || translations.fr}
 export function Structure({ children, className, lang = "fr"}: StructureProps) {
     const t = returnT(lang) 
