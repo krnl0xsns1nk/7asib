@@ -4,7 +4,7 @@ import {ReactNode} from "react";
 
 interface LangLayP{
     children: ReactNode;
-    params: { lang: string};
+    params: Promise<{ lang: string}>;
 }
 export default async function LangLayout({ children, params }: LangLayP) {
       let { lang } = await params;
