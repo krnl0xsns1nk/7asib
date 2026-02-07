@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "المعدل الوطني",
     "نقطة الباك",
   ],
-
+  manifest: "/manifest.json",
   alternates: {
     languages: {
       ar: "https://7asib.vercel.app/ar",
