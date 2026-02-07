@@ -63,17 +63,14 @@ interface LayoutProp {
 }
 
 export default async function RootLayout({ children }: LayoutProp) {
-  const headersList = await headers(); 
-
-  const acceptLanguage = headersList.get("accept-language") || "";
-  const lang = getBrowserLocale(acceptLanguage);
+//  const headersList = await headers(); 
+//  const acceptLanguage = headersList.get("accept-language") || "";
+//  const lang = getBrowserLocale(acceptLanguage);
 
   return (
-    <html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
+    <html>
       <body>
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );

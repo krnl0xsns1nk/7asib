@@ -1,6 +1,9 @@
+"use client"
 import React from "react";
 import Link from "next/link";
+import {useParams} from "next/navigation";
 const Footer: React.FC = () => {
+    const { lang } = useParams();
 	return (
 		<footer
 			style={{
@@ -18,7 +21,7 @@ const Footer: React.FC = () => {
 					color: "#555"
 				}}
 			>
-				© 2025-{new Date().getFullYear()} <Link href="/about">7asib</Link> – Code{" "}
+				© 2025-{new Date().getFullYear()} <Link href={`/${lang}/about`}>7asib</Link> – Code{" "}
 				<a href="https://github.com/krnl0xsns1nk/7asib" target="_blank">
 					Open source
 				</a>
