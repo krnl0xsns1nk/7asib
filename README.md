@@ -42,16 +42,45 @@ and here's some tech information about the repo:
 ### Programmer: 
 - Github: [@krnl0xsns1nk](https://github.com/krnl0xsns1nk)
 - Project: [7asib](https://krnl0xsns1nk/7asib)
-## 🗂️ Project Structure
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+##### Fork the repository
+Click **Fork** on GitHub to create your own copy.
+##### Clone your fork
+
+```bash
+git clone https://github.com/YOUR-USERNAME/7asib.git
+cd 7asib
+pnpm install
+```
+##### Create a new branch 
+
+```bash
+git checkout -b feature/my-change
+```
+##### Make your changes
+
+- edit files like add new function(level) to lib/levels.tsx
+- examples: add translation also to lib/locales/(ar.json/fr.json)
+- test locally with "npm run dev"
+##### commit and puuuuuuuuuuuush
+```bash
+git add .
+git commit -m "Add: my improvement"
+git push origin feature/my-change
+```
+##### pull request 
+Go to your fork on GitHub and click New Pull Request.
+
+
+## 🗂️ Project Structure (needed)
 
 ```bash
 README.md
-├── next-env.d.ts
-├── next.config.ts
-├── notes.md
 ├── package.json
-├── pnpm-lock.yaml
-├── pnpm-workspace.yaml
 ├── public/
 ├── src
 │   ├── app
@@ -72,7 +101,7 @@ README.md
 │   │   └── sitemap.ts
 │   ├── comps
 │   │   ├── Footer.tsx
-│   │   ├── Header.tsx
+│   │   ├── Heaer.tsx
 │   │   ├── Sections.tsx
 │   │   └── secCon.tsx
 │   ├── lib
@@ -85,8 +114,7 @@ README.md
 │   │       ├── ar.json
 │   │       ├── fr.json
 │   │       └── index.ts
-│   └── styles/
-└── tsconfig.json
+└──└── styles/
 ```
 
 # معاملات المواد : 
@@ -268,3 +296,19 @@ README.md
 
   </tbody>
 </table>
+
+## ⭐ ادعم المشروع بنجمة
+
+إذا كان **7asib** قد ساعدك، أو وفّر عليك الوقت، أو سهّل عليك حساب معدلاتك الدراسية…
+
+فلا تنسَ وضع ⭐ نجمة للمشروع على GitHub.
+
+قد تبدو حركة بسيطة، لكنها في عالم المشاريع المفتوحة المصدر تعني الكثير:
+
+- زيادة وصول المشروع لطلاب آخرين يحتاجونه
+- تحفيز للاستمرار في تطوير وتحسين الموقع
+- إعطاء ثقة للمساهمين الجدد عند زيارة المستودع
+
+👉 نقرة واحدة منك قد تجعل هذا المشروع يصل لآلاف الطلاب.
+
+شكرًا لدعمك 💙
