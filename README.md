@@ -88,15 +88,183 @@ README.md
 │   └── styles/
 └── tsconfig.json
 ```
+
 # معاملات المواد : 
-<table>
-  <tr>
-    <th>المستوى</th>
-    <th>المواد الدراسية</th>
-  </tr>
-  <tr>
-    <td>
-      
-    </td>
-  </tr>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>المستوى \ المواد الدراسية</th>
+      <th>العربية</th>
+      <th>الفرنسية</th>
+      <th>الرياضيات</th>
+      <th>الفيزياء</th>
+      <th>علوم الحياة</th>
+      <th>التاريخ والجغرافيا</th>
+      <th>التربية الإسلامية</th>
+      <th>الفلسفة</th>
+      <th>الإنجليزية</th>
+      <th>الاجتماعيات</th>
+      <th>التكنولوجيا</th>
+      <th>المعلوميات</th>
+      <th>الرياضة</th>
+      <th>المواظبة</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>TAS3A</th>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td></td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>TCSF</th>
+      <td>3</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>TCAL</th>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1BAC ex</th>
+      <td>2</td>
+      <td>4</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1BAC Letters</th>
+      <td>4</td>
+      <td>4</td>
+      <td>1</td>
+      <td></td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2BAC PC</th>
+      <td>2</td>
+      <td>2</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td></td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2BAC Letters</th>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td></td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>AAC</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>2</td>
+      <td>3</td>
+      <td></td>
+      <td>2</td>
+      <td></td>
+      <td>1</td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>BAC</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>2</td>
+      <td>3</td>
+      <td></td>
+      <td>2</td>
+      <td></td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+
+  </tbody>
 </table>
