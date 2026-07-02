@@ -5,10 +5,10 @@ import styles from "@/styles/cal.module.css";
 import {Locale, translations} from "./locales/index";
 export interface Subject {
 	subject: string;
-	coef: number;
+	ceof: number;
 }
 interface RowData {
-	coef: number;
+	ceof: number;
 	avg: number | null;
 }
 interface StructureProps {
@@ -19,7 +19,7 @@ interface StructureProps {
 interface GradeInputProps {
 	matier: string;
 	ceof: string;
-	updateRow?: (matier: string, coef: number, avg: number | null) => void;
+	updateRow?: (matier: string, ceof: number, avg: number | null) => void;
 }
 interface AnnualCalculatorProps {
 	anneLevel: Subject[];
@@ -37,10 +37,10 @@ export function Structure({ children, className, lang = "fr"}: StructureProps) {
 	const [rows, setRows] = useState<Record<string, RowData>>({});
 	const [note, setNote] = useState<number | null>(null);
 
-	const updateRow = (matier: string, coef: number, avg: number | null) => {
+	const updateRow = (matier: string, ceof: number, avg: number | null) => {
 		setRows(prev => ({
 			...prev,
-			[matier]: { coef, avg }
+			[matier]: { ceof, avg }
 		}));
 	};
 
@@ -48,10 +48,10 @@ export function Structure({ children, className, lang = "fr"}: StructureProps) {
 		let numerator = 0;
 		let denominator = 0;
 
-		Object.values(rows).forEach(({ coef, avg }) => {
+		Object.values(rows).forEach(({ ceof, avg }) => {
 			if (avg !== null) {
-				numerator += avg * coef;
-				denominator += coef;
+				numerator += avg * ceof;
+				denominator += ceof;
 			}
 		});
 
@@ -110,7 +110,7 @@ export function Structure({ children, className, lang = "fr"}: StructureProps) {
 	);
 }
 export function Trs({ matier, ceof, updateRow }: GradeInputProps) {
-	const coef = Number(ceof);
+	const ceof = Number(ceof);
 	const [values, setValues] = useState<string[]>(["", "", "", "", ""]);
 
 	function handleChange(i: number, e: React.ChangeEvent<HTMLInputElement>) {
@@ -127,7 +127,7 @@ export function Trs({ matier, ceof, updateRow }: GradeInputProps) {
 			avg = nums.reduce((a, b) => a + b, 0) / nums.length;
 		}
 
-		updateRow?.(matier, coef, avg);
+		updateRow?.(matier, ceof, avg);
 	}
 	return (
 		<tr>
@@ -145,7 +145,7 @@ export function Trs({ matier, ceof, updateRow }: GradeInputProps) {
 	);
 }
 export function TrM({ matier, ceof, updateRow }: GradeInputProps) {
-	const coef = Number(ceof);
+	const ceof = Number(ceof);
 	const [values, setValues] = useState<string[]>([""]);
 
 	function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -162,7 +162,7 @@ export function TrM({ matier, ceof, updateRow }: GradeInputProps) {
 			avg = nums.reduce((a, b) => a + b, 0) / nums.length;
 		}
 
-		updateRow?.(matier, coef, avg);
+		updateRow?.(matier, ceof, avg);
 	}
 
 	return (
@@ -201,11 +201,11 @@ export function Activiti({
 
 		values.forEach((val, i) => {
 			const numVal = val === "" || isNaN(Number(val)) ? 0 : Number(val);
-			const coef = Number(anneLevel[i].coef);
+			const ceof = Number(anneLevel[i].ceof);
 
-			if (coef > 0) {
-				numerator += numVal * coef;
-				denominator += coef;
+			if (ceof > 0) {
+				numerator += numVal * ceof;
+				denominator += ceof;
 			}
 		});
 
