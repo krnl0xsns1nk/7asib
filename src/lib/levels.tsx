@@ -9,33 +9,33 @@ export function TAS3A({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
 const subjecto: Subject[] = [
-{ subject: t.subjects.fr, coef: 1 },
-{ subject: t.subjects.math, coef: 1 },
-{ subject: t.subjects.ar, coef: 1 },
-{ subject: t.subjects.phy, coef: 1 },
-{ subject: t.subjects.svt, coef: 1},
-{ subject: t.subjects.soc, coef: 1 },
-{ subject: t.subjects.isl, coef: 1 },
-{ subject: t.subjects.sport, coef: 1 },
-{ subject: t.subjects.tech, coef: 1 },
-{ subject: t.subjects.eng, coef: 1 }
+{ subject: t.subjects.fr, ceof: 1 },
+{ subject: t.subjects.math, ceof: 1 },
+{ subject: t.subjects.ar, ceof: 1 },
+{ subject: t.subjects.phy, ceof: 1 },
+{ subject: t.subjects.svt, ceof: 1},
+{ subject: t.subjects.soc, ceof: 1 },
+{ subject: t.subjects.isl, ceof: 1 },
+{ subject: t.subjects.sport, ceof: 1 },
+{ subject: t.subjects.tech, ceof: 1 },
+{ subject: t.subjects.eng, ceof: 1 }
 ];
 
 const anneLevel: Subject[] = [
-{ subject: t.periods.p1, coef: 15 },
-{ subject: t.periods.p2, coef: 15 },
-{ subject: t.periods.regional, coef: 40 },
-{ subject: t.periods.local, coef: 30 }
+{ subject: t.periods.p1, ceof: 15 },
+{ subject: t.periods.p2, ceof: 15 },
+{ subject: t.periods.regional, ceof: 40 },
+{ subject: t.periods.local, ceof: 30 }
 ];
 
 const sub: Subject[] = [
-{ subject: t.subjects.fr, coef: 3 },
-{ subject: t.subjects.ar, coef: 3 },
-{ subject: t.subjects.math, coef: 3 },
-{ subject: t.subjects.svt, coef: 1 },
-{ subject: t.subjects.phy, coef: 1 },
-{ subject: t.subjects.isl, coef: 1 },
-{ subject: t.subjects.soc, coef: 1 }
+{ subject: t.subjects.fr, ceof: 3 },
+{ subject: t.subjects.ar, ceof: 3 },
+{ subject: t.subjects.math, ceof: 3 },
+{ subject: t.subjects.svt, ceof: 1 },
+{ subject: t.subjects.phy, ceof: 1 },
+{ subject: t.subjects.isl, ceof: 1 },
+{ subject: t.subjects.soc, ceof: 1 }
 ];
 
 return (
@@ -43,7 +43,7 @@ return (
 <h2 className={styles.title}>{t.niveaux.tas3a}</h2>
 <Structure className={styles.structure} lang={lang}>
 {subjecto.map((ob, idx) => (
-<Trs key={idx} ceof={ob.coef.toString()} matier={ob.subject} />
+<Trs key={idx} ceof={ob.ceof.toString()} matier={ob.subject} />
 ))}
 <TrM ceof="1" matier={t.subjects.assid} />
 </Structure>
@@ -60,8 +60,8 @@ export function TCSF({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
 const anneLevel: Subject[] = [
-{ subject: t.periods.p1, coef: 1 },
-{ subject: t.periods.p2, coef: 1 }
+{ subject: t.periods.p1, ceof: 1 },
+{ subject: t.periods.p2, ceof: 1 }
 ];
 
 return (
@@ -92,8 +92,8 @@ export function TCAL({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
 const anneLevel: Subject[] = [
-{ subject: t.periods.p1, coef: 1 },
-{ subject: t.periods.p2, coef: 1 }
+{ subject: t.periods.p1, ceof: 1 },
+{ subject: t.periods.p2, ceof: 1 }
 ];
 
 return (
@@ -123,16 +123,16 @@ export function ABAC_SCEXP({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
 const anneLevel: Subject[] = [
-{ subject: t.periods.p1, coef: 1.5 },
-{ subject: t.periods.p2, coef: 1.5 },
-{ subject: t.periods.regional, coef: 1 }
+{ subject: t.periods.p1, ceof: 1.5 },
+{ subject: t.periods.p2, ceof: 1.5 },
+{ subject: t.periods.regional, ceof: 1 }
 ];
 
 const subjects: Subject[] = [
-{ subject: t.subjects.fr, coef: 4 },
-{ subject: t.subjects.ar, coef: 2 },
-{ subject: t.subjects.isl, coef: 2 },
-{ subject: t.subjects.hisgeo, coef: 2 }
+{ subject: t.subjects.fr, ceof: 4 },
+{ subject: t.subjects.ar, ceof: 2 },
+{ subject: t.subjects.isl, ceof: 2 },
+{ subject: t.subjects.hisgeo, ceof: 2 }
 ];
 
 return (
@@ -163,15 +163,15 @@ export function ABAC_LSH({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
 const anneLevel: Subject[] = [
-{ subject: t.periods.p1, coef: 1.5 },
-{ subject: t.periods.p2, coef: 1.5 },
-{ subject: t.periods.regional, coef: 1 }
+{ subject: t.periods.p1, ceof: 1.5 },
+{ subject: t.periods.p2, ceof: 1.5 },
+{ subject: t.periods.regional, ceof: 1 }
 ];
 
 const subjects: Subject[] = [
-{ subject: t.subjects.fr, coef: 4 },
-{ subject: t.subjects.isl, coef: 2 },
-{ subject: t.subjects.math, coef: 1 }
+{ subject: t.subjects.fr, ceof: 4 },
+{ subject: t.subjects.isl, ceof: 2 },
+{ subject: t.subjects.math, ceof: 1 }
 ];
 
 return (
@@ -201,19 +201,19 @@ export function BBAC_PC({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
 const anneLevel: Subject[] = [
-{ subject: t.periods.cc, coef: 1 },
-{ subject: t.periods.regional, coef: 1 },
-{ subject: t.periods.national, coef: 2 }
+{ subject: t.periods.cc, ceof: 1 },
+{ subject: t.periods.regional, ceof: 1 },
+{ subject: t.periods.national, ceof: 2 }
 ];
 
 const subjects: Subject[] = [
-{ subject: t.subjects.math, coef: 7 },
-{ subject: t.subjects.phy, coef: 7 },
-{ subject: t.subjects.svt, coef: 4 },
-{ subject: t.subjects.phil, coef: 3 },
-{ subject: t.subjects.fr, coef: 2 },
-{ subject: t.subjects.ar, coef: 2 },
-{ subject: t.subjects.eng, coef: 2 }
+{ subject: t.subjects.math, ceof: 7 },
+{ subject: t.subjects.phy, ceof: 7 },
+{ subject: t.subjects.svt, ceof: 4 },
+{ subject: t.subjects.phil, ceof: 3 },
+{ subject: t.subjects.fr, ceof: 2 },
+{ subject: t.subjects.ar, ceof: 2 },
+{ subject: t.subjects.eng, ceof: 2 }
 ];
 
 return (
@@ -243,16 +243,16 @@ export function BBAC_SH({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
 const anneLevel: Subject[] = [
-{ subject: t.periods.cc, coef: 1 },
-{ subject: t.periods.regional, coef: 1 },
-{ subject: t.periods.national, coef: 2 }
+{ subject: t.periods.cc, ceof: 1 },
+{ subject: t.periods.regional, ceof: 1 },
+{ subject: t.periods.national, ceof: 2 }
 ];
 
 const subjects: Subject[] = [
-{ subject: t.subjects.phil, coef: 4 },
-{ subject: t.subjects.ar, coef: 4 },
-{ subject: t.subjects.hisgeo, coef: 4 },
-{ subject: t.subjects.fr, coef: 3 }
+{ subject: t.subjects.phil, ceof: 4 },
+{ subject: t.subjects.ar, ceof: 4 },
+{ subject: t.subjects.hisgeo, ceof: 4 },
+{ subject: t.subjects.fr, ceof: 3 }
 ];
 
 return (
@@ -282,8 +282,8 @@ export function AAC({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
 const anneLevel: Subject[] = [
-{ subject: t.periods.p1, coef: 1 },
-{ subject: t.periods.p2, coef: 1 }
+{ subject: t.periods.p1, ceof: 1 },
+{ subject: t.periods.p2, ceof: 1 }
 ];
 
 return (
@@ -312,8 +312,8 @@ export function BAC({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
 const anneLevel: Subject[] = [
-{ subject: t.periods.p1, coef: 1 },
-{ subject: t.periods.p2, coef: 1 }
+{ subject: t.periods.p1, ceof: 1 },
+{ subject: t.periods.p2, ceof: 1 }
 ];
 
 return (
