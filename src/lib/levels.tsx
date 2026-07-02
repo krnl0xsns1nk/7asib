@@ -13,6 +13,7 @@ const subjecto: Subject[] = [
 { subject: t.subjects.math, coef: 1 },
 { subject: t.subjects.ar, coef: 1 },
 { subject: t.subjects.phy, coef: 1 },
+{ subject: t.subjects.svt, coef: 1},
 { subject: t.subjects.soc, coef: 1 },
 { subject: t.subjects.isl, coef: 1 },
 { subject: t.subjects.hisgeo, coef: 1 },
