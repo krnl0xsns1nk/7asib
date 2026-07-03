@@ -1,338 +1,351 @@
-import { Structure, Activiti, TrM, Trs } from "./calculator"
+import { GradeStructure, AnnualCalculator, RegularSubjectRow, SpecialSubjectRow } from "./calculator"
 import styles from "@/styles/cal.module.css"
 import type { Subject } from "./calculator"
 import { Locale, translations } from "./locales";
 
-/* ================= TAS3A ================= */
+/* ================= TAS3A (3rd Year Middle School) ================= */
 
 export function TAS3A({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
-
-const subjecto: Subject[] = [
-{ subject: t.subjects.fr, ceof: 1 },
-{ subject: t.subjects.math, ceof: 1 },
-{ subject: t.subjects.ar, ceof: 1 },
-{ subject: t.subjects.phy, ceof: 1 },
-{ subject: t.subjects.svt, ceof: 1},
-{ subject: t.subjects.soc, ceof: 1 },
-{ subject: t.subjects.isl, ceof: 1 },
-{ subject: t.subjects.sport, ceof: 1 },
-{ subject: t.subjects.tech, ceof: 1 },
-{ subject: t.subjects.eng, ceof: 1 }
+/*
+const regularSubjects: Subject[] = [
+{ subject: t.subjects.fr, coefficient: 1 },
+{ subject: t.subjects.math, coefficient: 1 },
+{ subject: t.subjects.ar, coefficient: 1 },
+{ subject: t.subjects.phy, coefficient: 1 },
+{ subject: t.subjects.svt, coefficient: 1},
+{ subject: t.subjects.soc, coefficient: 1 },
+{ subject: t.subjects.isl, coefficient: 1 },
+{ subject: t.subjects.sport, coefficient: 1 },
+{ subject: t.subjects.tech, coefficient: 1 },
+{ subject: t.subjects.eng, coefficient: 1 }
+];
+*/
+const gradeWeights: Subject[] = [
+{ subject: t.periods.p1, coefficient: 15 },
+{ subject: t.periods.p2, coefficient: 15 },
+{ subject: t.periods.regional, coefficient: 40 },
+{ subject: t.periods.local, coefficient: 30 }
 ];
 
-const anneLevel: Subject[] = [
-{ subject: t.periods.p1, ceof: 15 },
-{ subject: t.periods.p2, ceof: 15 },
-{ subject: t.periods.regional, ceof: 40 },
-{ subject: t.periods.local, ceof: 30 }
-];
-
-const sub: Subject[] = [
-{ subject: t.subjects.fr, ceof: 3 },
-{ subject: t.subjects.ar, ceof: 3 },
-{ subject: t.subjects.math, ceof: 3 },
-{ subject: t.subjects.svt, ceof: 1 },
-{ subject: t.subjects.phy, ceof: 1 },
-{ subject: t.subjects.isl, ceof: 1 },
-{ subject: t.subjects.soc, ceof: 1 }
+const regionalLocalSubjects: Subject[] = [
+{ subject: t.subjects.fr, coefficient: 3 },
+{ subject: t.subjects.ar, coefficient: 3 },
+{ subject: t.subjects.math, coefficient: 3 },
+{ subject: t.subjects.svt, coefficient: 1 },
+{ subject: t.subjects.phy, coefficient: 1 },
+{ subject: t.subjects.isl, coefficient: 1 },
+{ subject: t.subjects.soc, coefficient: 1 }
 ];
 
 return (
 <>
 <h2 className={styles.title}>{t.niveaux.tas3a}</h2>
-<Structure className={styles.structure} lang={lang}>
-{subjecto.map((ob, idx) => (
-<Trs key={idx} ceof={ob.ceof.toString()} matier={ob.subject} />
-))}
-<TrM ceof="1" matier={t.subjects.assid} />
-</Structure>
-<Activiti H4={t.labels.avg_reg} anneLevel={sub} lang={lang} title={t.labels.subject} />
-<Activiti H4={t.labels.avg_loc} anneLevel={sub} lang={lang} title={t.labels.subject} />
-<Activiti anneLevel={anneLevel} lang={lang} title={t.labels.period} />
+<GradeStructure className={styles.structure} lang={lang}>
+
+
+  <RegularSubjectRow coefficient="1" subject={t.subjects.fr} />
+  <RegularSubjectRow coefficient="1" subject={t.subjects.math} />
+  <RegularSubjectRow coefficient="1" subject={t.subjects.ar} />
+  <RegularSubjectRow coefficient="1" subject={t.subjects.phy} />
+  <RegularSubjectRow coefficient="1" subject={t.subjects.svt} />
+  <RegularSubjectRow coefficient="1" subject={t.subjects.soc} />
+  <RegularSubjectRow coefficient="1" subject={t.subjects.isl} />
+  <RegularSubjectRow coefficient="1" subject={t.subjects.sport} />
+  <RegularSubjectRow coefficient="1" subject={t.subjects.tech} />
+  <RegularSubjectRow coefficient="1" subject={t.subjects.eng} />
+{/*regularSubjects.map((item, idx) => (
+<RegularSubjectRow key={idx} coefficient={item.coefficient.toString()} subject={item.subject} />
+))*/}
+<SpecialSubjectRow coefficient="1" subject={t.subjects.assid} />
+</GradeStructure>
+<AnnualCalculator H4={t.labels.avg_reg} gradeWeights={regionalLocalSubjects} lang={lang} title={t.labels.subject} />
+<AnnualCalculator H4={t.labels.avg_loc} gradeWeights={regionalLocalSubjects} lang={lang} title={t.labels.subject} />
+<AnnualCalculator gradeWeights={gradeWeights} lang={lang} title={t.labels.period} />
 </>
 );
 }
 
-/* ================= TCSF ================= */
+/* ================= TCSF (Common Trunk Science-French) ================= */
 
 export function TCSF({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
-const anneLevel: Subject[] = [
-{ subject: t.periods.p1, ceof: 1 },
-{ subject: t.periods.p2, ceof: 1 }
+const gradeWeights: Subject[] = [
+{ subject: t.periods.p1, coefficient: 1 },
+{ subject: t.periods.p2, coefficient: 1 }
 ];
 
 return (
 <>
 <h2 className={styles.title}>{t.niveaux.tcs}</h2>
-<Structure className={styles.structure} lang={lang}>
-<Trs ceof="4" matier={t.subjects.math} />
-<Trs ceof="4" matier={t.subjects.phy} />
-<Trs ceof="4" matier={t.subjects.svt} />
-<Trs ceof="3" matier={t.subjects.fr} />
-<Trs ceof="3" matier={t.subjects.ar} />
-<Trs ceof="3" matier={t.subjects.eng} />
-<Trs ceof="2" matier={t.subjects.isl} />
-<Trs ceof="2" matier={t.subjects.hisgeo} />
-<Trs ceof="2" matier={t.subjects.phil} />
-<Trs ceof="2" matier={t.subjects.info} />
-<Trs ceof="2" matier={t.subjects.sport} />
-<TrM ceof="1" matier={t.subjects.assid} />
-</Structure>
-<Activiti anneLevel={anneLevel} title={t.periods.sem} lang={lang} />
+<GradeStructure className={styles.structure} lang={lang}>
+<RegularSubjectRow coefficient="4" subject={t.subjects.math} />
+<RegularSubjectRow coefficient="4" subject={t.subjects.phy} />
+<RegularSubjectRow coefficient="4" subject={t.subjects.svt} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.fr} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.ar} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.eng} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.isl} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.hisgeo} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.phil} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.info} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.sport} />
+<SpecialSubjectRow coefficient="1" subject={t.subjects.assid} />
+</GradeStructure>
+<AnnualCalculator gradeWeights={gradeWeights} title={t.periods.sem} lang={lang} />
 </>
 );
 }
 
-/* ================= TCAL ================= */
+/* ================= TCAL (Common Trunk Arabic-Letters) ================= */
 
 export function TCAL({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
-const anneLevel: Subject[] = [
-{ subject: t.periods.p1, ceof: 1 },
-{ subject: t.periods.p2, ceof: 1 }
+const gradeWeights: Subject[] = [
+{ subject: t.periods.p1, coefficient: 1 },
+{ subject: t.periods.p2, coefficient: 1 }
 ];
 
 return (
 <>
 <h2 className={styles.title}>{t.niveaux.tcl}</h2>
-<Structure className={styles.structure} lang={lang}>
-<Trs ceof="4" matier={t.subjects.ar} />
-<Trs ceof="3" matier={t.subjects.phil} />
-<Trs ceof="3" matier={t.subjects.fr} />
-<Trs ceof="2" matier={t.subjects.svt} />
-<Trs ceof="2" matier={t.subjects.math} />
-<Trs ceof="2" matier={t.subjects.phy} />
-<Trs ceof="2" matier={t.subjects.eng} />
-<Trs ceof="1" matier={t.subjects.hisgeo} />
-<Trs ceof="1" matier={t.subjects.isl} />
-<Trs ceof="1" matier={t.subjects.sport} />
-<TrM ceof="1" matier={t.subjects.assid} />
-</Structure>
-<Activiti anneLevel={anneLevel} title={t.periods.sem} lang={lang}/>
+<GradeStructure className={styles.structure} lang={lang}>
+<RegularSubjectRow coefficient="4" subject={t.subjects.ar} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.phil} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.fr} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.svt} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.math} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.phy} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.eng} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.hisgeo} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.isl} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.sport} />
+<SpecialSubjectRow coefficient="1" subject={t.subjects.assid} />
+</GradeStructure>
+<AnnualCalculator gradeWeights={gradeWeights} title={t.periods.sem} lang={lang}/>
 </>
 );
 }
 
-/* ================= ABAC_SCEXP ================= */
+/* ================= ABAC_SCEXP (1st Year Baccalaureate - Experimental Sciences) ================= */
 
 export function ABAC_SCEXP({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
-const anneLevel: Subject[] = [
-{ subject: t.periods.p1, ceof: 1.5 },
-{ subject: t.periods.p2, ceof: 1.5 },
-{ subject: t.periods.regional, ceof: 1 }
+const gradeWeights: Subject[] = [
+{ subject: t.periods.p1, coefficient: 1.5 },
+{ subject: t.periods.p2, coefficient: 1.5 },
+{ subject: t.periods.regional, coefficient: 1 }
 ];
 
-const subjects: Subject[] = [
-{ subject: t.subjects.fr, ceof: 4 },
-{ subject: t.subjects.ar, ceof: 2 },
-{ subject: t.subjects.isl, ceof: 2 },
-{ subject: t.subjects.hisgeo, ceof: 2 }
+const regionalSubjects: Subject[] = [
+{ subject: t.subjects.fr, coefficient: 4 },
+{ subject: t.subjects.ar, coefficient: 2 },
+{ subject: t.subjects.isl, coefficient: 2 },
+{ subject: t.subjects.hisgeo, coefficient: 2 }
 ];
 
 return (
 <>
 <h2 className={styles.title}>{t.niveaux.bac1_sc}</h2>
-<Structure className={styles.structure} lang={lang}>
-<Trs ceof="7" matier={t.subjects.math} />
-<Trs ceof="7" matier={t.subjects.phy} />
-<Trs ceof="7" matier={t.subjects.svt} />
-<Trs ceof="4" matier={t.subjects.fr} />
-<Trs ceof="2" matier={t.subjects.ar} />
-<Trs ceof="2" matier={t.subjects.eng} />
-<Trs ceof="2" matier={t.subjects.hisgeo} />
-<Trs ceof="2" matier={t.subjects.isl} />
-<Trs ceof="2" matier={t.subjects.phil} />
-<Trs ceof="1" matier={t.subjects.sport} />
-<TrM ceof="1" matier={t.subjects.assid} />
-</Structure>
-<Activiti anneLevel={subjects} H4={t.labels.avg_reg} title={t.labels.subject} lang={lang}/>
-<Activiti anneLevel={anneLevel} title={t.labels.period} lang={lang}/>
+<GradeStructure className={styles.structure} lang={lang}>
+<RegularSubjectRow coefficient="7" subject={t.subjects.math} />
+<RegularSubjectRow coefficient="7" subject={t.subjects.phy} />
+<RegularSubjectRow coefficient="7" subject={t.subjects.svt} />
+<RegularSubjectRow coefficient="4" subject={t.subjects.fr} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.ar} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.eng} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.hisgeo} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.isl} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.phil} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.sport} />
+<SpecialSubjectRow coefficient="1" subject={t.subjects.assid} />
+</GradeStructure>
+<AnnualCalculator gradeWeights={regionalSubjects} H4={t.labels.avg_reg} title={t.labels.subject} lang={lang}/>
+<AnnualCalculator gradeWeights={gradeWeights} title={t.labels.period} lang={lang}/>
 </>
 );
 }
 
-/* ================= ABAC_LSH ================= */
+/* ================= ABAC_LSH (1st Year Baccalaureate - Letters & Humanities) ================= */
 
 export function ABAC_LSH({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
-const anneLevel: Subject[] = [
-{ subject: t.periods.p1, ceof: 1.5 },
-{ subject: t.periods.p2, ceof: 1.5 },
-{ subject: t.periods.regional, ceof: 1 }
+const gradeWeights: Subject[] = [
+{ subject: t.periods.p1, coefficient: 1.5 },
+{ subject: t.periods.p2, coefficient: 1.5 },
+{ subject: t.periods.regional, coefficient: 1 }
 ];
 
-const subjects: Subject[] = [
-{ subject: t.subjects.fr, ceof: 4 },
-{ subject: t.subjects.isl, ceof: 2 },
-{ subject: t.subjects.math, ceof: 1 }
+const regionalSubjects: Subject[] = [
+{ subject: t.subjects.fr, coefficient: 4 },
+{ subject: t.subjects.isl, coefficient: 2 },
+{ subject: t.subjects.math, coefficient: 1 }
 ];
 
 return (
 <>
 <h2 className={styles.title}>{t.niveaux.bac1_lsh}</h2>
-<Structure className={styles.structure} lang={lang}>
-<Trs ceof="4" matier={t.subjects.ar} />
-<Trs ceof="4" matier={t.subjects.eng} />
-<Trs ceof="4" matier={t.subjects.hisgeo} />
-<Trs ceof="4" matier={t.subjects.phil} />
-<Trs ceof="4" matier={t.subjects.fr} />
-<Trs ceof="2" matier={t.subjects.isl} />
-<Trs ceof="1" matier={t.subjects.math} />
-<Trs ceof="1" matier={t.subjects.svt} />
-<Trs ceof="1" matier={t.subjects.sport} />
-<TrM ceof="1" matier={t.subjects.assid} />
-</Structure>
-<Activiti anneLevel={subjects} H4={t.labels.avg_reg} lang={lang} title={t.labels.subject} />
-<Activiti anneLevel={anneLevel} title={t.labels.period} lang={lang} />
+<GradeStructure className={styles.structure} lang={lang}>
+<RegularSubjectRow coefficient="4" subject={t.subjects.ar} />
+<RegularSubjectRow coefficient="4" subject={t.subjects.eng} />
+<RegularSubjectRow coefficient="4" subject={t.subjects.hisgeo} />
+<RegularSubjectRow coefficient="4" subject={t.subjects.phil} />
+<RegularSubjectRow coefficient="4" subject={t.subjects.fr} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.isl} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.math} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.svt} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.sport} />
+<SpecialSubjectRow coefficient="1" subject={t.subjects.assid} />
+</GradeStructure>
+<AnnualCalculator gradeWeights={regionalSubjects} H4={t.labels.avg_reg} lang={lang} title={t.labels.subject} />
+<AnnualCalculator gradeWeights={gradeWeights} title={t.labels.period} lang={lang} />
 </>
 );
 }
 
-/* ================= BBAC_PC ================= */
+/* ================= BBAC_PC (2nd Year Baccalaureate - Physical Chemistry) ================= */
 
 export function BBAC_PC({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
-const anneLevel: Subject[] = [
-{ subject: t.periods.cc, ceof: 1 },
-{ subject: t.periods.regional, ceof: 1 },
-{ subject: t.periods.national, ceof: 2 }
+const gradeWeights: Subject[] = [
+{ subject: t.periods.cc, coefficient: 1 },
+{ subject: t.periods.regional, coefficient: 1 },
+{ subject: t.periods.national, coefficient: 2 }
 ];
 
-const subjects: Subject[] = [
-{ subject: t.subjects.math, ceof: 7 },
-{ subject: t.subjects.phy, ceof: 7 },
-{ subject: t.subjects.svt, ceof: 4 },
-{ subject: t.subjects.phil, ceof: 3 },
-{ subject: t.subjects.fr, ceof: 2 },
-{ subject: t.subjects.ar, ceof: 2 },
-{ subject: t.subjects.eng, ceof: 2 }
+const nationalSubjects: Subject[] = [
+{ subject: t.subjects.math, coefficient: 7 },
+{ subject: t.subjects.phy, coefficient: 7 },
+{ subject: t.subjects.svt, coefficient: 4 },
+{ subject: t.subjects.phil, coefficient: 3 },
+{ subject: t.subjects.fr, coefficient: 2 },
+{ subject: t.subjects.ar, coefficient: 2 },
+{ subject: t.subjects.eng, coefficient: 2 }
 ];
 
 return (
 <>
 <h2 className={styles.title}>{t.niveaux.bac2_pc}</h2>
-<Structure className={styles.structure} lang={lang}>
-<Trs ceof="7" matier={t.subjects.math} />
-<Trs ceof="7" matier={t.subjects.phy} />
-<Trs ceof="7" matier={t.subjects.svt} />
-<Trs ceof="3" matier={t.subjects.phil} />
-<Trs ceof="2" matier={t.subjects.fr} />
-<Trs ceof="2" matier={t.subjects.ar} />
-<Trs ceof="2" matier={t.subjects.eng} />
-<Trs ceof="1" matier={t.subjects.isl} />
-<Trs ceof="1" matier={t.subjects.sport} />
-<TrM ceof="1" matier={t.subjects.assid} />
-</Structure>
-<Activiti anneLevel={subjects} H4={t.labels.avg_nat} lang={lang} title={t.labels.subject} />
-<Activiti anneLevel={anneLevel} title={t.labels.period} lang={lang} />
+<GradeStructure className={styles.structure} lang={lang}>
+<RegularSubjectRow coefficient="7" subject={t.subjects.math} />
+<RegularSubjectRow coefficient="7" subject={t.subjects.phy} />
+<RegularSubjectRow coefficient="7" subject={t.subjects.svt} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.phil} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.fr} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.ar} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.eng} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.isl} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.sport} />
+<SpecialSubjectRow coefficient="1" subject={t.subjects.assid} />
+</GradeStructure>
+<AnnualCalculator gradeWeights={nationalSubjects} H4={t.labels.avg_nat} lang={lang} title={t.labels.subject} />
+<AnnualCalculator gradeWeights={gradeWeights} title={t.labels.period} lang={lang} />
 </>
 );
 }
 
-/* ================= BBAC_SH ================= */
+/* ================= BBAC_SH (2nd Year Baccalaureate - Humanities) ================= */
 
 export function BBAC_SH({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
-const anneLevel: Subject[] = [
-{ subject: t.periods.cc, ceof: 1 },
-{ subject: t.periods.regional, ceof: 1 },
-{ subject: t.periods.national, ceof: 2 }
+const gradeWeights: Subject[] = [
+{ subject: t.periods.cc, coefficient: 1 },
+{ subject: t.periods.regional, coefficient: 1 },
+{ subject: t.periods.national, coefficient: 2 }
 ];
 
-const subjects: Subject[] = [
-{ subject: t.subjects.phil, ceof: 4 },
-{ subject: t.subjects.ar, ceof: 4 },
-{ subject: t.subjects.hisgeo, ceof: 4 },
-{ subject: t.subjects.fr, ceof: 3 }
+const nationalSubjects: Subject[] = [
+{ subject: t.subjects.phil, coefficient: 4 },
+{ subject: t.subjects.ar, coefficient: 4 },
+{ subject: t.subjects.hisgeo, coefficient: 4 },
+{ subject: t.subjects.fr, coefficient: 3 }
 ];
 
 return (
 <>
 <h2 className={styles.title}>{t.niveaux.bac2_sh}</h2>
-<Structure className={styles.structure} lang={lang}>
-<Trs ceof="4" matier={t.subjects.ar} />
-<Trs ceof="4" matier={t.subjects.phil} />
-<Trs ceof="4" matier={t.subjects.hisgeo} />
-<Trs ceof="2" matier={t.subjects.fr} />
-<Trs ceof="2" matier={t.subjects.eng} />
-<Trs ceof="1" matier={t.subjects.math} />
-<Trs ceof="1" matier={t.subjects.svt} />
-<Trs ceof="1" matier={t.subjects.isl} />
-<Trs ceof="1" matier={t.subjects.sport} />
-<TrM ceof="1" matier={t.subjects.assid} />
-</Structure>
-<Activiti anneLevel={subjects} H4={t.labels.avg_nat} title={t.labels.subject} />
-<Activiti anneLevel={anneLevel} title={t.labels.period} lang={lang} />
+<GradeStructure className={styles.structure} lang={lang}>
+<RegularSubjectRow coefficient="4" subject={t.subjects.ar} />
+<RegularSubjectRow coefficient="4" subject={t.subjects.phil} />
+<RegularSubjectRow coefficient="4" subject={t.subjects.hisgeo} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.fr} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.eng} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.math} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.svt} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.isl} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.sport} />
+<SpecialSubjectRow coefficient="1" subject={t.subjects.assid} />
+</GradeStructure>
+<AnnualCalculator gradeWeights={nationalSubjects} H4={t.labels.avg_nat} title={t.labels.subject} />
+<AnnualCalculator gradeWeights={gradeWeights} title={t.labels.period} lang={lang} />
 </>
 );
 }
 
-/* ================= AAC ================= */
+/* ================= AAC (1st Year Middle School) ================= */
 
 export function AAC({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
-const anneLevel: Subject[] = [
-{ subject: t.periods.p1, ceof: 1 },
-{ subject: t.periods.p2, ceof: 1 }
+const gradeWeights: Subject[] = [
+{ subject: t.periods.p1, coefficient: 1 },
+{ subject: t.periods.p2, coefficient: 1 }
 ];
 
 return (
 <>
 <h2 className={styles.title}>{t.niveaux.col1}</h2>
-<Structure className={styles.structure} lang={lang}>
-<Trs ceof="5" matier={t.subjects.math} />
-<Trs ceof="5" matier={t.subjects.fr} />
-<Trs ceof="5" matier={t.subjects.ar} />
-<Trs ceof="3" matier={t.subjects.soc} />
-<Trs ceof="3" matier={t.subjects.svt} />
-<Trs ceof="2" matier={t.subjects.phy} />
-<Trs ceof="2" matier={t.subjects.isl} />
-<Trs ceof="2" matier={t.subjects.sport} />
-<Trs ceof="1" matier={t.subjects.eng} />
-<TrM ceof="1" matier={t.subjects.assid} />
-</Structure>
-<Activiti anneLevel={anneLevel} title={t.labels.period} lang={lang}/>
+<GradeStructure className={styles.structure} lang={lang}>
+<RegularSubjectRow coefficient="5" subject={t.subjects.math} />
+<RegularSubjectRow coefficient="5" subject={t.subjects.fr} />
+<RegularSubjectRow coefficient="5" subject={t.subjects.ar} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.soc} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.svt} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.phy} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.isl} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.sport} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.eng} />
+<SpecialSubjectRow coefficient="1" subject={t.subjects.assid} />
+</GradeStructure>
+<AnnualCalculator gradeWeights={gradeWeights} title={t.labels.period} lang={lang}/>
 </>
 );
 }
 
-/* ================= BAC ================= */
+/* ================= BAC (2nd Year Middle School) ================= */
 
 export function BAC({ lang = "fr" }: { lang: string }) {
 const t = translations[lang as Locale] || translations.fr
 
-const anneLevel: Subject[] = [
-{ subject: t.periods.p1, ceof: 1 },
-{ subject: t.periods.p2, ceof: 1 }
+const gradeWeights: Subject[] = [
+{ subject: t.periods.p1, coefficient: 1 },
+{ subject: t.periods.p2, coefficient: 1 }
 ];
 
 return (
 <>
 <h2 className={styles.title}>{t.niveaux.col2}</h2>
-<Structure className={styles.structure} lang={lang}>
-<Trs ceof="5" matier={t.subjects.math} />
-<Trs ceof="5" matier={t.subjects.fr} />
-<Trs ceof="5" matier={t.subjects.ar} />
-<Trs ceof="3" matier={t.subjects.soc} />
-<Trs ceof="3" matier={t.subjects.svt} />
-<Trs ceof="2" matier={t.subjects.phy} />
-<Trs ceof="2" matier={t.subjects.isl} />
-<Trs ceof="2" matier={t.subjects.tech} />
-<Trs ceof="2" matier={t.subjects.sport} />
-<Trs ceof="1" matier={t.subjects.eng} />
-<TrM ceof="1" matier={t.subjects.assid} />
-</Structure>
-<Activiti anneLevel={anneLevel} title={t.labels.period} lang={lang}/>
+<GradeStructure className={styles.structure} lang={lang}>
+<RegularSubjectRow coefficient="5" subject={t.subjects.math} />
+<RegularSubjectRow coefficient="5" subject={t.subjects.fr} />
+<RegularSubjectRow coefficient="5" subject={t.subjects.ar} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.soc} />
+<RegularSubjectRow coefficient="3" subject={t.subjects.svt} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.phy} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.isl} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.tech} />
+<RegularSubjectRow coefficient="2" subject={t.subjects.sport} />
+<RegularSubjectRow coefficient="1" subject={t.subjects.eng} />
+<SpecialSubjectRow coefficient="1" subject={t.subjects.assid} />
+</GradeStructure>
+<AnnualCalculator gradeWeights={gradeWeights} title={t.labels.period} lang={lang}/>
 </>
 );
 }
+

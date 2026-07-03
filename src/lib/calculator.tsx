@@ -3,265 +3,283 @@ import { useState, ReactNode, cloneElement, isValidElement } from "react";
 import { TAS3A, TCSF, TCAL, ABAC_SCEXP, ABAC_LSH, BBAC_PC, BBAC_SH, AAC, BAC} from "./levels"
 import styles from "@/styles/cal.module.css";
 import {Locale, translations} from "./locales/index";
+
 export interface Subject {
-	subject: string;
-	ceof: number;
+    subject: string;
+    coefficient: number;
 }
-interface RowData {
-	ceof: number;
-	avg: number | null;
+
+interface GradeData {
+    coefficient: number;
+    average: number | null;
 }
-interface StructureProps {
-	children: ReactNode;
-	className?: string;
+
+interface GradeStructureProps {
+    children: ReactNode;
+    className?: string;
     lang?: string
 }
-interface GradeInputProps {
-	matier: string;
-	ceof: string;
-	updateRow?: (matier: string, ceof: number, avg: number | null) => void;
+
+interface SubjectRowProps {
+    subject: string;
+    coefficient: string;
+    updateRow?: (subject: string, coefficient: number, average: number | null) => void;
 }
+
 interface AnnualCalculatorProps {
-	anneLevel: Subject[];
-	title: string;
-	H4?: string;
+    gradeWeights: Subject[];
+    title: string;
+    H4?: string;
     lang?: string;
 }
-interface niveauxType {
-      [key: string]: [React.ComponentType<{ lang: string }>, string | null | undefined];
-};
 
-function returnT(l: string){return translations[l as Locale] || translations.fr}
-export function Structure({ children, className, lang = "fr"}: StructureProps) {
-    const t = returnT(lang) 
-	const [rows, setRows] = useState<Record<string, RowData>>({});
-	const [note, setNote] = useState<number | null>(null);
-
-	const updateRow = (matier: string, ceof: number, avg: number | null) => {
-		setRows(prev => ({
-			...prev,
-			[matier]: { ceof, avg }
-		}));
-	};
-
-	const letMeSee = () => {
-		let numerator = 0;
-		let denominator = 0;
-
-		Object.values(rows).forEach(({ ceof, avg }) => {
-			if (avg !== null) {
-				numerator += avg * ceof;
-				denominator += ceof;
-			}
-		});
-
-		if (denominator === 0) {
-			setNote(0);
-		} else {
-			setNote(Number((numerator / denominator).toFixed(2)));
-		}
-	};
-
-	return (
-		<div className={className || "structure"}>
-			<p style={{ padding: "0 10px", direction: "ltr"}}>
-				{t.calculator.intro}
-			</p>
-			<table>
-				<thead>
-					<tr>
-						<th>{t.calculator.table.activities}</th>
-						<th>{t.calculator.table.note4}</th>
-						<th>{t.calculator.table.note3}</th>
-						<th>{t.calculator.table.note2}</th>
-						<th>{t.calculator.table.note1}</th>
-						<th>{t.calculator.table.subject}</th>
-					</tr>
-				</thead>
-				<tbody>
-					{Array.isArray(children)
-						? children.map((child, idx) => {
-								if (isValidElement(child)) {
-									return cloneElement(child as any, {
-										key: idx,
-										...(child as any).props,
-										updateRow
-									});
-								}
-								return child;
-						  })
-						: isValidElement(children)
-						? cloneElement(children as any, { updateRow })
-						: children}
-				</tbody>
-			</table>
-			<p
-				className={styles.result}
-				style={{
-					color: note !== null && note < 10.0 ? "red" : "green"
-				}}
-			>
-				{note}
-			</p>
-			<button className={styles.calculButton} onClick={letMeSee}>
-            {t.calculator.buttons.calculate}
-			</button>
-		</div>
-	);
+interface LevelRegistry {
+    [key: string]: [React.ComponentType<{ lang: string }>, string | null | undefined];
 }
-export function Trs({ matier, ceof, updateRow }: GradeInputProps) {
-	const ceof = Number(ceof);
-	const [values, setValues] = useState<string[]>(["", "", "", "", ""]);
 
-	function handleChange(i: number, e: React.ChangeEvent<HTMLInputElement>) {
-		const newVals = [...values];
-		newVals[i] = e.target.value;
-		setValues(newVals);
-
-		const nums = newVals
-			.map(v => (v === "" ? null : Number(v)))
-			.filter((v): v is number => v !== null && !isNaN(v));
-
-		let avg: number | null = null;
-		if (nums.length > 0) {
-			avg = nums.reduce((a, b) => a + b, 0) / nums.length;
-		}
-
-		updateRow?.(matier, ceof, avg);
-	}
-	return (
-		<tr>
-			{values.map((val, i) => (
-				<td key={i}>
-					<input
-						type="number"
-						value={val}
-						onChange={e => handleChange(i, e)}
-					/>
-				</td>
-			))}
-			<td className={styles.matier}>{matier}</td>
-		</tr>
-	);
+function getTranslations(lang: string) {
+    return translations[lang as Locale] || translations.fr;
 }
-export function TrM({ matier, ceof, updateRow }: GradeInputProps) {
-	const ceof = Number(ceof);
-	const [values, setValues] = useState<string[]>([""]);
 
-	function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-		const newVals = [...values];
-		newVals[0] = e.target.value;
-		setValues(newVals);
+export function GradeStructure({ children, className, lang = "fr" }: GradeStructureProps) {
+    const t = getTranslations(lang);
+    const [grades, setGrades] = useState<Record<string, GradeData>>({});
+    const [finalGrade, setFinalGrade] = useState<number | null>(null);
 
-		const nums = newVals
-			.map(v => (v === "" ? null : Number(v)))
-			.filter((v): v is number => v !== null && !isNaN(v));
+    const updateRow = (subject: string, coefficient: number, average: number | null) => {
+        setGrades(prev => ({
+            ...prev,
+            [subject]: { coefficient, average }
+        }));
+    };
 
-		let avg: number | null = null;
-		if (nums.length > 0) {
-			avg = nums.reduce((a, b) => a + b, 0) / nums.length;
-		}
+    const calculateGrade = () => {
+        let totalPoints = 0;
+        let totalCoefficients = 0;
 
-		updateRow?.(matier, ceof, avg);
-	}
+        Object.values(grades).forEach(({ coefficient, average }) => {
+            if (average !== null) {
+                totalPoints += average * coefficient;
+                totalCoefficients += coefficient;
+            }
+        });
 
-	return (
-		<tr>
-			<td colSpan={5}>
-				<input
-					type="number"
-					value={values[0]}
-					onChange={e => handleChange(e)}
-				/>
-			</td>
-			<td className={styles.matier}>{matier}</td>
-		</tr>
-	);
+        if (totalCoefficients === 0) {
+            setFinalGrade(0);
+        } else {
+            setFinalGrade(Number((totalPoints / totalCoefficients).toFixed(2)));
+        }
+    };
+
+    return (
+        <div className={className || "structure"}>
+            <p style={{ padding: "0 10px", direction: "ltr" }}>
+                {t.calculator.intro}
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>{t.calculator.table.activities}</th>
+                        <th>{t.calculator.table.note4}</th>
+                        <th>{t.calculator.table.note3}</th>
+                        <th>{t.calculator.table.note2}</th>
+                        <th>{t.calculator.table.note1}</th>
+                        <th>{t.calculator.table.subject}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Array.isArray(children)
+                        ? children.map((child, idx) => {
+                            if (isValidElement(child)) {
+                                return cloneElement(child as any, {
+                                    key: idx,
+                                    ...(child as any).props,
+                                    updateRow
+                                });
+                            }
+                            return child;
+                        })
+                        : isValidElement(children)
+                        ? cloneElement(children as any, { updateRow })
+                        : children}
+                </tbody>
+            </table>
+            <p
+                className={styles.result}
+                style={{
+                    color: finalGrade !== null && finalGrade < 10.0 ? "red" : "green"
+                }}
+            >
+                {finalGrade}
+            </p>
+            <button className={styles.calculButton} onClick={calculateGrade}>
+                {t.calculator.buttons.calculate}
+            </button>
+        </div>
+    );
 }
-export function Activiti({
-	anneLevel,
-	title,
-	H4 = "Moyenne générale",
+
+export function RegularSubjectRow({ subject, coefficient, updateRow }: SubjectRowProps) {
+    const coef = Number(coefficient);
+    const [grades, setGrades] = useState<string[]>(["", "", "", "", ""]);
+
+    function handleChange(index: number, e: React.ChangeEvent<HTMLInputElement>) {
+        const newGrades = [...grades];
+        newGrades[index] = e.target.value;
+        setGrades(newGrades);
+
+        const validNumbers = newGrades
+            .map(grade => (grade === "" ? null : Number(grade)))
+            .filter((grade): grade is number => grade !== null && !isNaN(grade));
+
+        let average: number | null = null;
+        if (validNumbers.length > 0) {
+            average = validNumbers.reduce((sum, grade) => sum + grade, 0) / validNumbers.length;
+        }
+
+        updateRow?.(subject, coef, average);
+    }
+
+    return (
+        <tr>
+            {grades.map((grade, index) => (
+                <td key={index}>
+                    <input
+                        type="number"
+                        value={grade}
+                        onChange={e => handleChange(index, e)}
+                    />
+                </td>
+            ))}
+            <td className={styles.matier}>{subject}</td>
+        </tr>
+    );
+}
+
+export function SpecialSubjectRow({ subject, coefficient, updateRow }: SubjectRowProps) {
+    const coef = Number(coefficient);
+    const [grades, setGrades] = useState<string[]>([""]);
+
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const newGrades = [...grades];
+        newGrades[0] = e.target.value;
+        setGrades(newGrades);
+
+        const validNumbers = newGrades
+            .map(grade => (grade === "" ? null : Number(grade)))
+            .filter((grade): grade is number => grade !== null && !isNaN(grade));
+
+        let average: number | null = null;
+        if (validNumbers.length > 0) {
+            average = validNumbers.reduce((sum, grade) => sum + grade, 0) / validNumbers.length;
+        }
+
+        updateRow?.(subject, coef, average);
+    }
+
+    return (
+        <tr>
+            <td colSpan={5}>
+                <input
+                    type="number"
+                    value={grades[0]}
+                    onChange={handleChange}
+                />
+            </td>
+            <td className={styles.matier}>{subject}</td>
+        </tr>
+    );
+}
+
+export function AnnualCalculator({
+    gradeWeights,
+    title,
+    H4 = "Moyenne générale",
     lang = "fr"
 }: AnnualCalculatorProps) {
-	const [values, setValues] = useState<string[]>(
-		Array(anneLevel.length).fill("0")
-	);
-	const [note, setNote] = useState<number>(0);
+    const [inputGrades, setInputGrades] = useState<string[]>(
+        Array(gradeWeights.length).fill("0")
+    );
+    const [calculatedAverage, setCalculatedAverage] = useState<number>(0);
 
-	function handleChange(i: number, e: React.ChangeEvent<HTMLInputElement>) {
-		const newVals = [...values];
-		newVals[i] = e.target.value;
-		setValues(newVals);
-	}
+    function handleChange(index: number, e: React.ChangeEvent<HTMLInputElement>) {
+        const newGrades = [...inputGrades];
+        newGrades[index] = e.target.value;
+        setInputGrades(newGrades);
+    }
 
-	function anne() {
-		let numerator = 0;
-		let denominator = 0;
+    function calculateAnnualGrade() {
+        let totalPoints = 0;
+        let totalCoefficients = 0;
 
-		values.forEach((val, i) => {
-			const numVal = val === "" || isNaN(Number(val)) ? 0 : Number(val);
-			const ceof = Number(anneLevel[i].ceof);
+        inputGrades.forEach((grade, index) => {
+            const numGrade = grade === "" || isNaN(Number(grade)) ? 0 : Number(grade);
+            const coef = Number(gradeWeights[index].coefficient);
 
-			if (ceof > 0) {
-				numerator += numVal * ceof;
-				denominator += ceof;
-			}
-		});
+            if (coef > 0) {
+                totalPoints += numGrade * coef;
+                totalCoefficients += coef;
+            }
+        });
 
-		if (denominator === 0) {
-			setNote(0);
-		} else {
-			setNote(Number((numerator / denominator).toFixed(2)));
-		}
-	}
-    const t = returnT(lang)
-    lang != "fr" && H4 === "Moyenne générale" ? H4 = t.calculator.labels.generalAverage : null;
-	return (
-		<>
-			<h4 className={styles.title}>{H4}</h4>
-			<div className={styles.Grand_father}>
-				<div className={styles.father}>
-					<div>{t.calculator.Note}</div>
-					{anneLevel.map((lev, i) => (
-						<div key={i}>
-							<input
-								type="number"
-								value={values[i]}
-								onChange={e => handleChange(i, e)}
-								placeholder={t.calculator.placeholders.defaultZero}
-							/>
-						</div>
-					))}
-					<div style={{ color: note < 10.0 ? "red" : "green" }}>
-						{note}
-					</div>
-				</div>
+        if (totalCoefficients === 0) {
+            setCalculatedAverage(0);
+        } else {
+            setCalculatedAverage(Number((totalPoints / totalCoefficients).toFixed(2)));
+        }
+    }
 
-				<div className={styles.father}>
-					<div>{title}</div>
-					{anneLevel.map((lev, i) => (
-						<div
-							key={i}
-							style={{
-								backgroundColor: "rgba(156, 163, 175, 0.502)"
-							}}
-						>
-							{lev.subject}
-						</div>
-					))}
-					<div
-						onClick={anne}
-						style={{ backgroundColor: "rgba(249, 115, 22, 0.794)" }}
-					>
-                    {t.calculator.buttons.calculate}
-					</div>
-				</div>
-			</div>
-		</>
-	);
+    const t = getTranslations(lang);
+    const sectionTitle = lang !== "fr" && H4 === "Moyenne générale" 
+        ? t.calculator.labels.generalAverage 
+        : H4;
+
+    return (
+        <>
+            <h4 className={styles.title}>{sectionTitle}</h4>
+            <div className={styles.Grand_father}>
+                <div className={styles.father}>
+                    <div>{t.calculator.Note}</div>
+                    {gradeWeights.map((weight, index) => (
+                        <div key={index}>
+                            <input
+                                type="number"
+                                value={inputGrades[index]}
+                                onChange={e => handleChange(index, e)}
+                                placeholder={t.calculator.placeholders.defaultZero}
+                            />
+                        </div>
+                    ))}
+                    <div style={{ color: calculatedAverage < 10.0 ? "red" : "green" }}>
+                        {calculatedAverage}
+                    </div>
+                </div>
+
+                <div className={styles.father}>
+                    <div>{title}</div>
+                    {gradeWeights.map((weight, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                backgroundColor: "rgba(156, 163, 175, 0.502)"
+                            }}
+                        >
+                            {weight.subject}
+                        </div>
+                    ))}
+                    <div
+                        onClick={calculateAnnualGrade}
+                        style={{ backgroundColor: "rgba(249, 115, 22, 0.794)" }}
+                    >
+                        {t.calculator.buttons.calculate}
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }
-export const primarylev: niveauxType = {
+
+export const primaryLevels: LevelRegistry = {
     '3ac': [TAS3A, 'Troisième année collège'],
     tcsf: [TCSF, 'Tronc commun sciences Français'],
     tcal: [TCAL, 'Tronc commun lettres'],
@@ -271,12 +289,15 @@ export const primarylev: niveauxType = {
     '2bac-pc': [BBAC_PC, '2bac sciences physiques'],
 }
 
-export const secondarylev: niveauxType ={
+export const secondaryLevels: LevelRegistry = {
     '1ac': [AAC, 'Première année collège'],
     '2ac': [BAC, 'Deuxième année collège']
 }
 
-const niveaux: niveauxType = {
-    ...secondarylev, ...primarylev
+const educationLevels: LevelRegistry = {
+    ...secondaryLevels, 
+    ...primaryLevels
 };
-export default niveaux;
+
+export default educationLevels;
+
