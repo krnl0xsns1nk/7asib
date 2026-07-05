@@ -13,7 +13,7 @@
   },
   "nav": {
       "home":"L'accueil",
-      "app": "Notre pwa",
+      "app": "Notre App",
       "about": "À propos"
   },
   "levels": {
@@ -61,8 +61,8 @@
   "calculationsDescription": "Nous mettons tout en œuvre pour garantir les meilleures performances possibles. Cependant, il est possible que nous commettions des erreurs et que nos calculs ne soient pas toujours satisfaisants. C'est pourquoi nous vous expliquons comment nous procédons. Si vous êtes développeur, vous pouvez consulter directement notre code source. Sinon, vous pouvez vous référer à notre documentation officielle.",
   "readAbout": "lire À propos",
   "sourceCode": "code source",
-  "installPwaTitle": "Installer notre PWA (.apk)",
-  "installPwaDescription": "Installez notre site web en tant qu'application pour calculer vos notes. Vous pourrez ainsi accéder à nos services partout et à tout moment.",
+  "installApkTitle": "Installer l'application",
+  "installApkDescription": "Téléchargement et utilisation de l'application sans connexion Internet. Nous soutenons actuellement Android en raison de la difficulté de publier notre application sur les appareils ios",
   "install": "Installer",
   "reportErrorTitle": "Signaler des erreurs ou suggérer des améliorations",
   "reportErrorDescription": "Vous avez trouvé une erreur sur le site ? Vous souhaitez nous suggérer une nouvelle fonctionnalité ou des idées pour améliorer notre site ? N'hésitez pas à nous les signaler via notre centre d'incidents.",

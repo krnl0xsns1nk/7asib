@@ -21,12 +21,12 @@ const Sections = () => {
       <div className={styles.grid}>
         {secData.map((section, index) => {
           let s = section.call[0].text.trim();
-          const isPwaSection = s === 'Installer' || s === "تثبيت";
+          const isApkSection = s === 'Installer' || s === "تثبيت";
           return (
             <div
               key={index}
               className={styles.card}
-              id={isPwaSection ? 'pwa' : ''}
+              id={isApkSection ? 'apk' : ''}
             >
               <div className={styles.icon}>{section.icon}</div>
               <h3 className={styles.title}>
@@ -47,7 +47,7 @@ const Sections = () => {
                   href={section.call[0].url}
                   text={section.call[0].text}
                   icon={section.call[0].icon}
-                  isDownload={isPwaSection}
+                  isDownload={isApkSection}
                   clas={true}
                 />
               </div>

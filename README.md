@@ -1,314 +1,109 @@
-# 🇲🇦 7asib — احسب معدلك الدراسي بسهولة
+7asib — احسب معدلك الدراسي بسهولة
 
-> أدخل نقاطك… واحصل على معدلك فورًا وفق النظام الرسمي المغربي، مجاني 100%، بلا اعلانات !
+حاسبة مجانية لحساب المعدلات الدراسية وفق النظام التعليمي المغربي، مفتوحة المصدر وبدون إعلانات.
 
-> ليس مجرد موقع، بل الة حاسبة للمعدل في جيبك في اي وقت
+📱 Android App
 
-🌍 Live: https://7asib.vercel.app
+يمكنك الآن تحميل 7asib كتطبيق أندرويد واستخدامه مباشرة على هاتفك.
 
----
+📥 حمّل آخر إصدار من صفحة Releases على GitHub.
+مستودع التطبيق : <a href="https://github.com/krnl0xsns1nk/7asib-app" >krnl0xsns1nk/7asib-app</a>
+او مباشرة عبر <a href="https://github.com/krnl0xsns1nk/7asib-app/releases/download/v1.0.0/7asib.apk">تحميل</a>
 
-## ✨ ما هو 7asib؟
+ملاحظة مهمة
 
-<p dir="rtl">
-  <b>7asib</b> هو موقع يتيح لك حساب معدلك الدراسي بحرية وبدون ازعاج الاعلانات، يمكنك من خلال زيارة الموقع او ثبيته ك pwa والدخول اليه مرة واحدة، الاستفادة من امكانية حساب معدلك مجانا في اي وقت في اي مكان، نحسب حسب المنهج التعليمي المغربي واسفله تجيدون المعاملات التي استخدمناها للحساب، ولا تنسو دعم المشروع بنجمة !
-</p>
+تطبيق أندرويد يوفر تجربة سريعة ويعمل بدون اتصال بالإنترنت، لكنه لا يزال في مراحله الأولى وقد يتأخر أحيانًا عن نسخة الويب في الحصول على آخر التحديثات والميزات.
 
-## المميزات 🦾
-
-- يدعم العربية 🇸🇦 والفرنسية 🇫🇷 تلقائيًا حسب لغة الجهاز
-- يعمل كتطبيق **PWA** ويمكن تثبيته على الهاتف
-- سريع وخفيف ولا يحتاج تسجيل دخول او اشتراك
-- مبني بتقنيات حديثة جدا وامن للغاية
+لا ندعم هواتف ال IOS بسبب صعوبة نشر التطبيق وتكلفو المشاركة وبسبب قيود النظام
 
 ---
 
-## 🎯 لماذا هذا المشروع؟
+🌐 نسخة الويب
 
-الكثير من التلاميذ:
-- لا يعرفون طريقة حساب المعدل الصحيحة
-- يخطئون في معاملات المواد او تواجههم لخبطة في الحساب
-- يضيعون الوقت في الحساب اليدوي
-- يواجهون صعوبة في الحساب اليدوي 
+إذا كنت تريد أحدث إصدار دائمًا، فلا تحتاج إلى تثبيت أي شيء.
 
-<p dir="rtl"><b>7asib يحول هاته المشاكل الى عملية بسيطة وخفيفة وسريعة</b></p>
+استخدم نسخة الويب مباشرة:
+
+https://7asib.vercel.app
+
+نسخة الويب هي:
+
+- ✅ الأحدث دائمًا
+- ✅ تحصل على الميزات والتحديثات أولًا
+- ✅ لا تحتاج إلى تثبيت
+- ✅ تعمل من أي متصفح وعلى أي جهاز
 
 ---
 
-# DEV / TECH :
-and here's some tech information about the repo: 
-### tech stack :
-> NextJs + TypeScript + Next-Pwa !
-### Programmer: 
-- Github: [@krnl0xsns1nk](https://github.com/krnl0xsns1nk)
-- Project: [7asib](https://krnl0xsns1nk/7asib)
+✨ المميزات
 
-## 🤝 Contributing
+- 🇲🇦 حساب المعدلات وفق النظام التعليمي المغربي.
+- 📱 تطبيق أندرويد يعمل بدون إنترنت.
+- 🌐 نسخة ويب محدثة باستمرار.
+- ⚡ سريع وخفيف.
+- 🆓 مجاني بالكامل وبدون إعلانات.
+- 🔓 مفتوح المصدر.
 
-Contributions are welcome!
+---
 
-##### Fork the repository
-Click **Fork** on GitHub to create your own copy.
-##### Clone your fork
+🛠️ التقنيات المستخدمة
+
+Android App
+
+- React Native
+- Expo
+- Expo Router
+- TypeScript
+
+Website
+
+- Next.js
+- TypeScript
+
+---
+
+🤝 المساهمة
+
+أي مساهمة مرحب بها، سواء بإصلاح خطأ، تحسين الواجهة أو إضافة مستويات جديدة.
+
+1. قم بعمل Fork للمشروع.
+
+2. استنسخ المستودع:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/7asib.git
+git clone https://github.com/krnl0xsns1nk/7asib.git
 cd 7asib
 pnpm install
 ```
-##### Create a new branch 
+
+3. أنشئ فرعًا جديدًا:
 
 ```bash
-git checkout -b feature/my-change
+git checkout -b feature/my-feature
 ```
-##### Make your changes
 
-- edit files like add new function(level) to lib/levels.tsx
-- examples: add translation also to lib/locales/(ar.json/fr.json)
-- test locally with "npm run dev"
-##### commit and puuuuuuuuuuuush
-```bash
-git add .
-git commit -m "Add: my improvement"
-git push origin feature/my-change
-```
-##### pull request 
-Go to your fork on GitHub and click New Pull Request.
+4. نفذ التعديلات المطلوبة.
 
-
-## 🗂️ Project Structure (needed)
+5. شغّل المشروع محليًا:
 
 ```bash
-README.md
-├── package.json
-├── public/
-├── src
-│   ├── app
-│   │   ├── [lang]
-│   │   │   ├── [niveau]
-│   │   │   │   └── page.tsx
-│   │   │   ├── about
-│   │   │   │   └── page.tsx
-│   │   │   ├── layout.tsx
-│   │   │   ├── levels
-│   │   │   │   └── page.tsx
-│   │   │   └── page.tsx
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   ├── not-found.tsx
-│   │   ├── page.tsx
-│   │   ├── robots.ts
-│   │   └── sitemap.ts
-│   ├── comps
-│   │   ├── Footer.tsx
-│   │   ├── Heaer.tsx
-│   │   ├── Sections.tsx
-│   │   └── secCon.tsx
-│   ├── lib
-│   │   ├── Writer.tsx
-│   │   ├── calculator.tsx
-│   │   ├── creatT.ts
-│   │   ├── getLocal.tsx
-│   │   ├── levels.tsx
-│   │   └── locales
-│   │       ├── ar.json
-│   │       ├── fr.json
-│   │       └── index.ts
-└──└── styles/
+npm run dev
 ```
 
-# معاملات المواد : 
+6. ارفع التعديلات وافتح Pull Request.
 
-<table border="1" cellpadding="6" cellspacing="0">
-  <thead>
-    <tr>
-      <th>المستوى \ المواد الدراسية</th>
-      <th>العربية</th>
-      <th>الفرنسية</th>
-      <th>الرياضيات</th>
-      <th>الفيزياء</th>
-      <th>علوم الحياة</th>
-      <th>التاريخ والجغرافيا</th>
-      <th>التربية الإسلامية</th>
-      <th>الفلسفة</th>
-      <th>الإنجليزية</th>
-      <th>الاجتماعيات</th>
-      <th>التكنولوجيا</th>
-      <th>المعلوميات</th>
-      <th>الرياضة</th>
-      <th>المواظبة</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>TAS3A</th>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>1</td>
-      <td>1</td>
-      <td></td>
-      <td>1</td>
-      <td></td>
-      <td></td>
-      <td>1</td>
-      <td></td>
-      <td></td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>TCSF</th>
-      <td>3</td>
-      <td>3</td>
-      <td>4</td>
-      <td>4</td>
-      <td>4</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
-      <td>3</td>
-      <td></td>
-      <td></td>
-      <td>2</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>TCAL</th>
-      <td>4</td>
-      <td>3</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-      <td>2</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1BAC ex</th>
-      <td>2</td>
-      <td>4</td>
-      <td>7</td>
-      <td>7</td>
-      <td>7</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1BAC Letters</th>
-      <td>4</td>
-      <td>4</td>
-      <td>1</td>
-      <td></td>
-      <td>1</td>
-      <td>4</td>
-      <td>2</td>
-      <td>4</td>
-      <td>4</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2BAC PC</th>
-      <td>2</td>
-      <td>2</td>
-      <td>7</td>
-      <td>7</td>
-      <td>7</td>
-      <td></td>
-      <td>1</td>
-      <td>3</td>
-      <td>2</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2BAC Letters</th>
-      <td>4</td>
-      <td>2</td>
-      <td>1</td>
-      <td></td>
-      <td>1</td>
-      <td>4</td>
-      <td>1</td>
-      <td>4</td>
-      <td>2</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>AAC</th>
-      <td>5</td>
-      <td>5</td>
-      <td>5</td>
-      <td>2</td>
-      <td>3</td>
-      <td></td>
-      <td>2</td>
-      <td></td>
-      <td>1</td>
-      <td>3</td>
-      <td></td>
-      <td></td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>BAC</th>
-      <td>5</td>
-      <td>5</td>
-      <td>5</td>
-      <td>2</td>
-      <td>3</td>
-      <td></td>
-      <td>2</td>
-      <td></td>
-      <td>1</td>
-      <td>3</td>
-      <td>2</td>
-      <td></td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
+---
 
-  </tbody>
-</table>
+معاملات المواد
 
-## ⭐ ادعم المشروع بنجمة
+«(ضع جدول المعاملات الحالي هنا كما هو دون أي تعديل.)»
 
-إذا كان **7asib** قد ساعدك، أو وفّر عليك الوقت، أو سهّل عليك حساب معدلاتك الدراسية…
+---
 
-فلا تنسَ وضع ⭐ نجمة للمشروع على GitHub.
+⭐ دعم المشروع
 
-قد تبدو حركة بسيطة، لكنها في عالم المشاريع المفتوحة المصدر تعني الكثير:
+إذا ساعدك 7asib في حساب معدلك، فيمكنك دعم المشروع بسهولة عبر وضع ⭐ للمستودع على GitHub.
 
-- زيادة وصول المشروع لطلاب آخرين يحتاجونه
-- تحفيز للاستمرار في تطوير وتحسين الموقع
-- إعطاء ثقة للمساهمين الجدد عند زيارة المستودع
+هذه النجمة تساعد المشروع على الوصول إلى عدد أكبر من الطلاب، وتشجع على الاستمرار في تطويره وإضافة مستويات وميزات جديدة.
 
-👉 نقرة واحدة منك قد تجعل هذا المشروع يصل لآلاف الطلاب.
-
-شكرًا لدعمك 💙
+شكرًا لكل من يستخدم المشروع أو يساهم في تحسينه. 💙

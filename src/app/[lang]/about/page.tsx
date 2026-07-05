@@ -26,7 +26,7 @@ const About: React.FC<Props> = async ({params}) => {
         <>
         <section className={`${styles.main} animate-on-scroll`}>
             <div>
-                <h1>7asib-v0.9.0-beta</h1>
+                <h1>7asib-v1</h1>
                 <p>{t.about.hero.subtitle}</p>
             </div>
             <hr />

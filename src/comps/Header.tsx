@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProp> = ({
 						priority
 					/>
 					<h1>
-						7asib <span>v0.9.0-beta</span>
+						7asib <span>v1</span>
 					</h1>
 				</div>
 				{sidebar ? (
@@ -71,7 +71,7 @@ const SideBar: React.FC<SideBarProp> = ({ clas, lang }) => {
 	return (
 		<nav className={`${styles.nav} ${clas}`}>
 			<Link href={`/${lang}`}>{t.nav.home}</Link>
-            <Link href={`/${lang}/#pwa`}>{t.nav.app}</Link> 
+            <Link href={`/${lang}/#apk`}>{t.nav.app}</Link> 
 			<Link href={`/${lang}/about`}>{t.nav.about}</Link>
 		</nav>
 	);

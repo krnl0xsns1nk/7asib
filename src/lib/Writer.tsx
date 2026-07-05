@@ -7,6 +7,7 @@ interface WriterProp {
 }
 
 const Writer: React.FC<WriterProp> = ({ text, time = 100 }) => {
+  console.log(text)
 	const [TEXT, setText] = React.useState<string>("");
 	const [start, setStart] = React.useState<boolean>(false);
 	const ref = React.useRef<HTMLSpanElement | null>(null);
